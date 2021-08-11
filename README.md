@@ -79,11 +79,10 @@ una de tus Historias de Usuario debe tener:
     información editada.
   - Al recargar la página debo de poder ver los textos editados.
 
-
 ### 4.2 Diseño de la Interfaz de Usuario 
 
 #### Flujo de la aplicación:
-<img  src= "src/img/diagrama_flujo.png"><br>
+<img  src= "src/img/flujo.png"><br>
 #### Prototipo de baja fidelidad:
 <img  src= "src/img/prototype_1.jpeg"><br>
 <img  src= "src/img/prototype_2.jpeg"><br>

@@ -7,8 +7,97 @@
   <link rel="stylesheet" href="style.css">
   <title>LoveBook</title>
 </head>
-<body>
-  
+<body id="body">
+  <nav class="navbar" id="navbar">
+    <div class="navbar-container">
+        <a class="navbar-logo" href="#">Logo</a>
+        <div class="navbar-options">
+            <ul class="navbar-items-list">
+              <li class="navbar-item">
+                  <a class="navbar-link" href="#">SignIn</a>
+              </li>
+              <li class="navbar-item">
+                  <a class="navbar-link">SignUp</a>
+              </li>
+              <li class="navbar-item">
+                  <a class="navbar-link" id="logout">LogOut</a>
+              </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+
+  <main>
+    <div id="mainDiv">
+
+    </div>
+  </main>
+
+<!--   <div class="acount" >
+    <div class="acount-content"  id="acountContent">
+      <div class="acount-header">
+        <h2 class="signup-title">LoveBook</h2>
+        <p>sharing experienes</p>
+        <img src="" alt="LoveBook logo">
+      </div>
+      <div class="login-content" id="loginDiv">
+        <div class="login-user">
+          <form action="" id="login-form">
+            <input type="email" id="login-email" required>
+            <label for="login-email">email</label>
+            <input type="password" id="login-password" required>
+            <label for="login-password">password</label>
+          <button type="submit" class="btn login-btn">Login</button>
+        </form>
+        </div>
+        <div class="login-google">
+          <p>Login with google</p>
+        </div>
+        <div>
+          <button id="signup">create an account</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- create an account -->
+<!--   <div class="signup">
+    <form action="" id="signup-form">
+      <input type="email" id="login-email" required>
+      <label for="login-email">email</label>
+      <input type="password" id="login-password" required>
+      <label for="login-password">password</label>
+      <input type="password" id="login-password2" required>
+      <label for="login-password2">confirm your password</label>
+      <button type="submit" class="btn login-btn">Signup</button>
+    </form>
+  </div> -->
+
+  <footer>
+    <p>2021 All rights reserved - made by Iliana, Rosa & Ana Karina</p>
+  </footer>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBlgxgS988GbByExm5c2mtSZSCfCIo-qWA",
+      authDomain: "lovebook-bfd55.firebaseapp.com",
+      projectId: "lovebook-bfd55",
+      storageBucket: "lovebook-bfd55.appspot.com",
+      messagingSenderId: "120012373583",
+      appId: "1:120012373583:web:1eacc589d276210563343a"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth(); 
+
+  </script>
   <script type="module" src="main.js"></script>
 </body>
 </html>

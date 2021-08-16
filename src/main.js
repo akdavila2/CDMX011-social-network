@@ -23,7 +23,7 @@ createAccount.addEventListener('click', e =>{
             signupMesseges.innerHTML = `Password doesn't match`;            
         }
         console.log(password, email);
-})
+    })
 })
 
 

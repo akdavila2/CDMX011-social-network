@@ -9,9 +9,9 @@ export const pages = {
             <div class="log-content">
                 <div class="login-user">
                     <form action="" id="login-form" class="form">
-                        <label for="login-email">email</label>
+                        <label for="login-email">Email</label>
                         <input type="email" id="login-email" required>
-                        <label for="login-password">password</label>                           
+                        <label for="login-password">Eassword</label>                           
                         <input type="password" id="login-password" required>
                         <button type="submit" class="btn login-btn">Login</button>
                     </form>

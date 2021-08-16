@@ -1,8 +1,76 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
-.logo-nav{
-    width: 20%;
+html {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    color: #968C83;
+    height: 100%;
+}
+body {
+    margin: 0;
+    overflow-x: hidden;
+    height: 100%;
+    line-height: 1.5;
+}
+header {
+    max-width: 100%;
     height: auto;
+
+}
+label{
+    padding: 10px;
+}
+input{
+    padding: 5px;
+}
+button {
+    width: 268px;
+    height: 40px;
+    background-color: #968C83;
+    color: #EEEEEE;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
+.login-btn{
+    margin: 25px;
+}
+.login-google{
+    text-align: center;
+}
+.container-1{
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+}
+.acount {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.acount-logo {
+	width: 26rem;
+	margin: 2rem;
+}
+
+.log-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 1rem;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+footer{
+    width: auto;
+    height: auto;
+    text-align: center;
 }

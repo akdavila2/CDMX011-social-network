@@ -1,20 +1,28 @@
-html {
+* {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
-    color: #968C83;
-    height: 100%;
 }
 
 body {
+    width: 100%;
     margin: 0;
     overflow-x: hidden;
-    height: 100%;
     line-height: 1.5;
+    font-family: 'Open Sans', sans-serif;
 }
 
 header {
     max-width: 100%;
-    height: 118px;
+    height: auto;
+}
+
+label {
+    padding: 10px;
+}
+
+input {
+    padding: 5px;
 }
 
 button {
@@ -23,5 +31,82 @@ button {
     background-color: #968C83;
     color: #EEEEEE;
     border-radius: 15px;
+    border: 1px black;
     cursor: pointer;
+    margin: 10px;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.login-btn {
+    margin: 25px;
+}
+
+.login-google {
+    text-align: center;
+    display: flex;
+    margin: 10px;
+}
+
+.logo-google {
+    width: auto;
+    height: auto;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.container-1 {
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+    font-size: 1.1em;
+}
+
+.acount {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.acount-logo {
+    width: 95%;
+}
+
+.log-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+
+hr {
+    width: 100px;
+    background-color: rgba(0, 0, 0, .3);
+    height: 1px;
+    text-align: start;
+    margin: 10px;
+    margin-left: 30px;
+}
+
+.division-2 {
+    margin: auto;
+}
+
+.division {
+    display: flex;
+}
+
+#signup {
+    margin-left: 35px;
 }

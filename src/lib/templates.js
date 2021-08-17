@@ -50,6 +50,18 @@ export const pages = {
                 </form>
             </div>
         </div>
-        `
+        
+`
+    },
+    home: {
+        template: `  
+<nav>
+    <ul>
+        <li><a href="#">User</a></li>
+        <li><a id="logout" href="#">Logout</a></li>
+        <li><a href="#">Add post</a></li>
+    </ul>
+    <img src="../img/logo-nav2.png" alt="Logo as home" class="logo-nav">
+</nav>`
     }
 }

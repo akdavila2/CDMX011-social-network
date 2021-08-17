@@ -1,8 +1,7 @@
 export const pages = {
     signin: {
         path: '/signin',
-        template:
-        `<div class="acount" >
+        template: `<div class="acount" >
             <div class="acount-header">
                 <img src="../img/logo-nav.png" class="acount-logo"alt="LoveBook logo">
             </div>
@@ -28,8 +27,7 @@ export const pages = {
     },
     signup: {
         path: "/signup",
-        template:
-        `<div class="acount" >
+        template: `<div class="acount" >
             <div class="acount-header">
                 <img src="../img/logo-nav.png" class="acount-logo"alt="LoveBook logo">
             </div>
@@ -47,5 +45,5 @@ export const pages = {
             </div>
         </div>
         `
-  }
+    }
 }

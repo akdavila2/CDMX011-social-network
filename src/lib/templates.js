@@ -22,7 +22,7 @@ export const pages = {
                     <p>Login with google</p>
                 </div>
                 <div>
-                    <button id="signup">create an account</button>
+                    <a href="#/signup" id="signup">create an account</a>
                 </div>
             </div>
         </div>

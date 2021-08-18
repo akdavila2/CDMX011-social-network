@@ -53,15 +53,22 @@ export const pages = {
         
 `
     },
-    home: {
-        template: `  
-<nav>
-    <ul>
-        <li><a href="#">User</a></li>
-        <li><a id="logout" href="#">Logout</a></li>
-        <li><a href="#">Add post</a></li>
-    </ul>
-    <img src="../img/logo-nav2.png" alt="Logo as home" class="logo-nav">
-</nav>`
+    navBar: {
+        template: 
+        `<nav> 
+            <div class="logo-nav">
+                <img class="logo-nav" src="../img/logo-nav2.png" alt="">
+            </div>
+            <div class="menu-nav">
+                <ul>
+                    <li><a id="logout" href="">Sign off</a></li>
+                    <li><a href="#"><img src="../img/iconsusuario.png">Profile</a></li>
+                </ul>
+            </div>
+            <div>
+                <a href="#"><button >Add post</button> </a>
+            </div>
+        </nav>
+        `
     }
 }

@@ -86,3 +86,7 @@ una de tus Historias de Usuario debe tener:
 #### Prototipo de baja fidelidad:
 <img  src= "src/img/prototype_1.jpeg" width= 700px height= 700px><br>
 <img  src= "src/img/prototype_2.jpeg" width= 700px height= 700px><br>
+
+#### Prototipo de alta Fidelidad:
+<img  src= "src/img/PDAFDesktop.png"><br>
+<img  src= "src/img/PDAFMobile.png"><br>

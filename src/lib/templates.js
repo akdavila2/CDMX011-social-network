@@ -1,8 +1,7 @@
 export const pages = {
     signin: {
         path: '/signin',
-        template:
-        `<div class="acount" >
+        template: `<div class="acount" >
             <div class="acount-header">
                 <img src="../img/logo-nav.png" class="acount-logo"alt="LoveBook logo">
             </div>
@@ -22,7 +21,10 @@ export const pages = {
                 <hr class="division-3">
                 </div>
                 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f438b595f8c1af74a138c2649612a9b7fbfd9f31
                 <div class="login-google">
                 <img src="../img/icongoogle.png" alt="logo google" class="logo-google"> <p> Login with google</p>
                 </div>
@@ -35,8 +37,7 @@ export const pages = {
     },
     signup: {
         path: "/signup",
-        template:
-        `<div class="acount" >
+        template: `<div class="acount" >
             <div class="acount-header">
                 <img src="../img/logo-nav.png" class="acount-logo"alt="LoveBook logo">
             </div>
@@ -53,6 +54,18 @@ export const pages = {
                 </form>
             </div>
         </div>
-        `
-  }
+        
+`
+    },
+    home: {
+        template: `  
+<nav>
+    <ul>
+        <li><a href="#">User</a></li>
+        <li><a id="logout" href="#">Logout</a></li>
+        <li><a href="#">Add post</a></li>
+    </ul>
+    <img src="../img/logo-nav2.png" alt="Logo as home" class="logo-nav">
+</nav>`
+    }
 }

@@ -52,4 +52,18 @@ logout.addEventListener('click', (e)=>{
 
 window.addEventListener('hashchange', () => {
     console.log(window.location.hash)
+    router(window.location.hash)
+    
 })
+
+const router = (route)=>{
+    main.innerHTML = ""
+    switch (route) {
+        case "#/signin": {
+            return main.innerHTML = pages.signin.template
+        }
+        case "#/signup": {
+            return main.innerHTML = pages.signup.template
+        }
+    }
+}

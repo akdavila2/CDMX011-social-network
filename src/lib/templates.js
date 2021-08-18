@@ -2,7 +2,7 @@
 
 export const pages = {
     signin: {
-        path: '/signin',
+        path: '#signin',
         template:
         `<div class="acount" >
             <div class="acount-header">
@@ -22,7 +22,7 @@ export const pages = {
                     <p>Login with google</p>
                 </div>
                 <div>
-                    <a href="#/signup" id="signup">create an account</a>
+                <button id="signup"><a href="#/signup">create an account</a></button>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@ export const pages = {
     },
 
     signup: {
-        path: "/signup",
+        path: "#signup",
         template:
         `<div class="acount" >
             <div class="acount-header">
@@ -49,6 +49,27 @@ export const pages = {
                 </form>
             </div>
         </div>
+        `
+    },
+
+    home: {
+        path: "/",
+        template:
+        `<nav class="navbar" id="navbar">
+            <div class="navbar-container">
+                <a class="navbar-logo" href="#">Logo</a>
+                <div class="navbar-options">
+                    <ul class="navbar-items-list">
+                    <li class="navbar-item">
+                        <a class="navbar-link" href="#">Profile</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="navbar-link" id="logout">LogOut</a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         `
     }
 

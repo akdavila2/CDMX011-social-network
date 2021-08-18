@@ -66,7 +66,7 @@ auth.onAuthStateChanged((user) => {
 }; */
 
 window.addEventListener('hashchange', () => {
-    console.log(window.location.hash)
+    router(window.location.hash)
 })
 
 

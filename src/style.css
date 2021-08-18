@@ -3,7 +3,6 @@
     margin: 0;
     box-sizing: border-box;
 }
-
 body {
     width: 100%;
     margin: 0;
@@ -71,14 +70,12 @@ button {
 .acount-logo {
     width: 95%;
 }
-
 .log-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 1rem;
 }
-
 .form {
     display: flex;
     flex-direction: column;

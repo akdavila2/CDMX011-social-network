@@ -12,17 +12,20 @@ const routes = {
 };
 //Se manda a llamar el template principal desde template.js
 const main = document.getElementById('templates');
+const header = document.getElementById('header')
 main.innerHTML = pages.signin.template;
 //Metodo para verificar usuario logueado 
 auth.onAuthStateChanged((user) => {
     if (user) {
-        main.innerHTML = pages.home.template;
+        header.innerHTML = pages.navBar.template
+        main.innerHTML = "posts"
         const logout = document.querySelector('#logout');
         logout.addEventListener('click', (e) => {
             e.preventDefault();
             auth.signOut()
                 .then(() => {
                     console.log("sign out")
+                    header.innerHTML = ""
                 }).catch((error) => { // An error happened. 
                 });
         })
@@ -41,7 +44,7 @@ auth.onAuthStateChanged((user) => {
                 let confirmationPw = document.getElementById('signupPassword2').value;
                 const signupMesseges = document.getElementById('signupMesseges');
                 if (password === confirmationPw) {
-                    authentification(email, password)
+                    authentification(email, password) 
                 } else {
                     signupMesseges.innerHTML = `Password doesn't match`;
                 }
@@ -63,4 +66,21 @@ export const navigate = (pathname) => {
         return;
     }
     main.innerHTML = routes[pathname]();
-};
+}; 
+
+window.addEventListener('hashchange', () => {
+    router(window.location.hash)
+})
+
+
+const router = (route) => {
+    main.innerHTML = ""
+    switch (route) {
+        case"#/signin": {
+            return main.innerHTML = pages.signin.template
+        }
+        case "#/signup": {
+            return main.innerHTML = pages.signup.template
+        }
+    }
+}

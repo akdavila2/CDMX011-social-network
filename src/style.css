@@ -49,16 +49,6 @@ button {
     text-align: center;
     display: flex;
     margin: 10px;
-<<<<<<< HEAD
-}
-.logo-google{
-    width: auto;
-    height: auto;
-    margin-right: 20px;
-    margin-left: 20px;
-
-=======
->>>>>>> f438b595f8c1af74a138c2649612a9b7fbfd9f31
 }
 
 .logo-google {
@@ -82,11 +72,7 @@ button {
 }
 
 .acount-logo {
-<<<<<<< HEAD
-	width: 95%;
-=======
     width: 95%;
->>>>>>> f438b595f8c1af74a138c2649612a9b7fbfd9f31
 }
 .log-content {
     display: flex;
@@ -104,25 +90,6 @@ footer {
     height: auto;
     text-align: center;
 }
-<<<<<<< HEAD
-hr{
-    width: 100px;
-    background-color: rgba(0,0,0,.3);
-    height: 1px;
-    text-align:start;
-    margin: 10px;
-    margin-left: 30px;
-}
-.division-2{
-    margin: auto;
-}
-.division{
-    display: flex;
-}
-#signup{
-    margin-left: 35px;
-}
-=======
 
 hr {
     width: 100px;
@@ -144,4 +111,3 @@ hr {
 #signup {
     margin-left: 35px;
 }
->>>>>>> f438b595f8c1af74a138c2649612a9b7fbfd9f31

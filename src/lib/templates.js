@@ -21,15 +21,11 @@ export const pages = {
                 <hr class="division-3">
                 </div>
                 
-<<<<<<< HEAD
-
-=======
->>>>>>> f438b595f8c1af74a138c2649612a9b7fbfd9f31
                 <div class="login-google">
                 <img src="../img/icongoogle.png" alt="logo google" class="logo-google"> <p> Login with google</p>
                 </div>
                 <div>
-                    <button id="signup"> Create an account</button>
+                    <button id="signup"><a href="#/signup"> Create an account</a></button>
                 </div>
             </div>
         </div>

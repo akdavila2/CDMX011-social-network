@@ -10,6 +10,41 @@ body {
     overflow-x: hidden;
     line-height: 1.5;
     font-family: 'Open Sans', sans-serif;
+    color: #968C83;
+}
+
+.logo-nav {
+    width: 250px;
+    height: 50px;
+}
+
+.home {
+    display: grid;
+    width: 100%;
+    height: auto;
+}
+
+li {
+    list-style: none;
+    float: right;
+    padding: 10px;
+}
+
+a:link {
+    color: #968C83;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #423F3E;
+}
+
+a:active {
+    color: #968C83;
+}
+
+a:hover {
+    color: #7D5A50;
 }
 
 header {
@@ -22,7 +57,15 @@ label {
 }
 
 input {
-    padding: 5px;
+    border-left: 0px;
+    border-top: 0px;
+    border-right: 0px;
+    border-bottom: 2px solid #D6D2C4;
+    font-size: 16px;
+    margin-bottom: 20px;
+    outline: none;
+    height: 40px;
+    background-color: white;
 }
 
 button {
@@ -92,11 +135,12 @@ footer {
 
 hr {
     width: 100px;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: #D6D2C4;
     height: 1px;
     text-align: start;
     margin: 10px;
     margin-left: 30px;
+    color: #D6D2C4;
 }
 
 .division-2 {

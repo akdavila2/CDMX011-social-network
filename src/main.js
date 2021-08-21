@@ -1,69 +1,98 @@
+/* eslint-disable indent */
 // Este es el punto de entrada de tu aplicacion
 
-import { myFunction, firebaseSignup } from './lib/index.js';
-import { pages } from './lib/templates.js' 
+import { authentification } from './lib/index.js';
+import { pages } from './lib/templates.js';
 
-myFunction();
+//Rutas para el SPA 
+const routes = {
+    '/': pages.home.template,
+    '/signup': pages.signup.template,
+    '/signin': pages.signin.template
+}; 
 
-const navbar = document.getElementById('navbar');
-const main = document.getElementById('mainDiv');
-
-
+//Se manda a llamar el template principal desde template.js
+const main = document.getElementById('templates');
+const header = document.getElementById('header')
+main.innerHTML = pages.signin.template;
+//Metodo para verificar usuario logueado 
 auth.onAuthStateChanged((user) => {
     if (user) {
-       navbar.style.display = "flex"
-       main.innerHTML = ""
+        header.innerHTML = pages.navBar.template
+        main.innerHTML = pages.home.template
+        const logout = document.querySelector('#logout');
+        logout.addEventListener('click', (e) => {
+            e.preventDefault();
+            auth.signOut()
+                .then(() => {
+                    console.log("sign out")
+                    header.innerHTML = ""
+                }).catch((error) => { // An error happened. 
+                });
+        })
     } else {
-        navbar.style.display = "none"
-        main.innerHTML = pages.signin.template
-        signup.addEventListener('click', ()=> {
-            main.innerHTML = pages.signup.template
-            const signupForm = document.getElementById('signupForm')
-            signupForm.addEventListener('submit', (e)=> {
-                e.preventDefault()
-                let email = document.getElementById('signupEmail').value;
-                let password = document.getElementById('signupPassword').value;
-                let passwordConfirmation = document.getElementById('signupPassword2').value;
-                let messeges = document.getElementById('signupMesseges');
-                console.log(email, password)
-                if (password === passwordConfirmation){
-                    firebaseSignup(email, password)
+        //Se crea un evento para el botón de crear cuenta
+        main.innerHTML = pages.signin.templ;
+        const createAccount = document.querySelector('#signup');
+        createAccount.addEventListener('click', e => {
+            e.preventDefault();
+            main.innerHTML = pages.signup.template;
+            const signUpForm = document.querySelector('#signupForm');
+            signUpForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let email = document.querySelector('#signupEmail').value;
+                let password = document.querySelector('#signupPassword').value;
+                let confirmationPw = document.getElementById('signupPassword2').value;
+                const signupMesseges = document.getElementById('signupMesseges');
+                if (password === confirmationPw) {
+                    authentification(email, password) 
                 } else {
-                    messeges.innerHTML = "Your password don't match"
+                    signupMesseges.innerHTML = `Password doesn't match`;
                 }
-
+                console.log(password, email);
             })
         })
     }
 });
 
-const logout = document.querySelector('#logout')
-
-logout.addEventListener('click', (e)=>{
-    e.preventDefault()
-    auth.signOut()
-    .then(() => {
-        console.log("sign out")
-      }).catch((error) => {
-        // An error happened.
-      });
-})
 
 
-window.addEventListener('hashchange', () => {
-    console.log(window.location.hash)
-    router(window.location.hash)
+
+//Implementado SPA(Aun no funciona)
+
+let pathRoutes = (pathName) => {
+    window.history.pushState(
+        {},
+        pathName,
+        window.location.origin + pathName
+    )
     
+
+}
+
+/* export const navigate = (pathname) => {
+    window.history.pushState({}, document.title, window.location.origin + pathname);
+    if (routes[pathname] === undefined) {
+        main.innerHTML = `<img class= "error" src = 'img/error404.png'></img>`;
+        return;
+    }
+    main.innerHTML = routes[pathname]();
+}; */ 
+
+/* window.addEventListener('hashchange', () => {
+    router(window.location.hash)
 })
 
-const router = (route)=>{
+
+const router = (route) => {
     main.innerHTML = ""
     switch (route) {
-        case "#/signin": {
+        case"#/signin": {
             return main.innerHTML = pages.signin.template
         }
         case "#/signup": {
             return main.innerHTML = pages.signup.template
         }
     }
-}
+} */
+

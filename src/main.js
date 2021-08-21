@@ -6,10 +6,11 @@ import { pages } from './lib/templates.js';
 
 //Rutas para el SPA 
 const routes = {
-    '/': pages.signin,
-    '/signup': pages.signup,
-    '/poster': pages.home
-};
+    '/': pages.home.template,
+    '/signup': pages.signup.template,
+    '/signin': pages.signin.template
+}; 
+
 //Se manda a llamar el template principal desde template.js
 const main = document.getElementById('templates');
 const header = document.getElementById('header')
@@ -18,7 +19,7 @@ main.innerHTML = pages.signin.template;
 auth.onAuthStateChanged((user) => {
     if (user) {
         header.innerHTML = pages.navBar.template
-        main.innerHTML = "posts"
+        main.innerHTML = pages.home.template
         const logout = document.querySelector('#logout');
         logout.addEventListener('click', (e) => {
             e.preventDefault();
@@ -31,7 +32,7 @@ auth.onAuthStateChanged((user) => {
         })
     } else {
         //Se crea un evento para el botón de crear cuenta
-        main.innerHTML = pages.signin.template;
+        main.innerHTML = pages.signin.templ;
         const createAccount = document.querySelector('#signup');
         createAccount.addEventListener('click', e => {
             e.preventDefault();
@@ -68,7 +69,7 @@ export const navigate = (pathname) => {
     main.innerHTML = routes[pathname]();
 }; 
 
-window.addEventListener('hashchange', () => {
+/* window.addEventListener('hashchange', () => {
     router(window.location.hash)
 })
 
@@ -83,4 +84,4 @@ const router = (route) => {
             return main.innerHTML = pages.signup.template
         }
     }
-}
+} */

@@ -17,12 +17,14 @@ const routes = {
 // //Se manda a llamar el template principal desde template.js
 const main = document.getElementById('templates');
 const header = document.getElementById('header');
-main.innerHTML = Login(), eventLogin();;
+main.innerHTML = Login();
+eventLogin();
 
 //Metodo para verificar usuario logueado 
 auth.onAuthStateChanged((user) => {
     if (user) {
-        header.innerHTML = Home(), eventHome();
+        header.innerHTML = Home();
+        eventHome();
         main.innerHTML = 'posts';
         const logout = document.querySelector('#logout');
         logout.addEventListener('click', (e) => {
@@ -36,8 +38,8 @@ auth.onAuthStateChanged((user) => {
         })
     } else {
         //Se crea un evento para el botón de crear cuenta
-        main.innerHTML = Login(), eventLogin();
-
+        main.innerHTML = Login();
+        eventLogin();
         const createAccount = document.querySelector('#signup');
         createAccount.addEventListener('click', e => {
             e.preventDefault();

@@ -1,8 +1,8 @@
-import { onNavigate } from "../main";
+import { onNavigate } from "../main.js";
 
 /* eslint-disable indent */
 export const Home = () => {
-    const view = () => { return `
+    return `
 <nav>
   <div class="logo-nav">
     <img class="logo-nav" src="../img/logo-nav2.png" alt="">
@@ -19,17 +19,19 @@ export const Home = () => {
     <button id="post" type="submit">Add post</button> 
   </div>
 </nav>
-` };
+`
+};
+export const eventHome = () => {
     const posts = document.getElementById('post');
     const logout = document.getElementById('logout');
-    let outHome = [];
-    const HomeDiv = document.createElement('div');
-    const templates = document.getElementById('templates');
-    outHome += view();
-    HomeDiv.innerHTML = outHome;
-    HomeDiv.classList.add('acount');
-    templates.appendChild(HomeDiv);
+    logout.addEventListener('click', () => onNavigate('/'));
+    posts.addEventListener('click', () => onNavigate('/post'));
 }
 
-logout.addEventListener('click', () => onNavigate('/'));
-post.addEventListener('click', () => onNavigate('/post'));
+// let outHome = [];
+// const HomeDiv = document.createElement('div');
+// const templates = document.getElementById('templates');
+// outHome += view();
+// HomeDiv.innerHTML = outHome;
+// HomeDiv.classList.add('acount');
+// templates.appendChild(HomeDiv);

@@ -1,8 +1,8 @@
 /* eslint-disable indent */
 import { authentification } from './lib/index.js';
-import { Login } from './components/Login.js';
-import { Home } from './components/Home.js';
-import { SignUp } from './components/SignUp.js';
+import { Login, eventLogin } from './components/Login.js';
+import { Home, eventHome } from './components/Home.js';
+import { SignUp, eventSignUp } from './components/SignUp.js';
 import { Profile } from './components/Profile.js';
 
 //Rutas para el SPA 
@@ -13,32 +13,16 @@ const routes = {
     '/home': Home,
 };
 
-const main = document.getElementById('templates');
-
-export const onNavigate = (pathname) => {
-    window.history.pushState({},
-        pathname,
-        window.location.origin + pathname,
-    );
-    while (main.firstChild) {
-        main.removeChild(main.firstChild);
-    }
-    main.appendChild(routes[pathname]());
-};
-const component = routes[window.location.pathname];
-window.onpopstate = () => {
-    main.appendChild(component());
-};
-main.appendChild(component());
 
 // //Se manda a llamar el template principal desde template.js
-
+const main = document.getElementById('templates');
 const header = document.getElementById('header');
-main.innerHTML = Login();
+main.innerHTML = Login(), eventLogin();;
+
 //Metodo para verificar usuario logueado 
 auth.onAuthStateChanged((user) => {
     if (user) {
-        header.innerHTML = Home();
+        header.innerHTML = Home(), eventHome();
         main.innerHTML = 'posts';
         const logout = document.querySelector('#logout');
         logout.addEventListener('click', (e) => {
@@ -52,11 +36,12 @@ auth.onAuthStateChanged((user) => {
         })
     } else {
         //Se crea un evento para el botón de crear cuenta
-        main.innerHTML = Login();
+        main.innerHTML = Login(), eventLogin();
+
         const createAccount = document.querySelector('#signup');
         createAccount.addEventListener('click', e => {
             e.preventDefault();
-            main.innerHTML = SignUp();
+            main.innerHTML = SignUp(), eventSignUp();
             const signUpForm = document.querySelector('#signupForm');
             signUpForm.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -74,3 +59,20 @@ auth.onAuthStateChanged((user) => {
         })
     }
 });
+
+
+export const onNavigate = (pathname) => {
+    window.history.pushState({},
+        pathname,
+        window.location.origin + pathname,
+    );
+    while (main.firstChild) {
+        main.removeChild(main.firstChild);
+    }
+    main.appendChild(routes[pathname]());
+};
+const component = routes[window.location.pathname];
+window.onpopstate = () => {
+    main.appendChild(component());
+};
+main.appendChild(component());

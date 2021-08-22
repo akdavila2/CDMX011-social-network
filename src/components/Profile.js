@@ -1,4 +1,4 @@
-import { onNavigate } from "../main";
+import { onNavigate } from "../main.js";
 export const Profile = () => {
     const view = () => { return `
 <h5>Edit Profile</h5>
@@ -14,7 +14,7 @@ export const Profile = () => {
     <label for="profilePassword2">confirm your password</label>
     <input type="password" id="signupPassword2" required>
     <p id="signupMesseges"></p>
-    <a href="/home"><button type="submit" >Save</button></a>
+    <button id=""btnProfile type="submit">Save</button>
 </form>
 ` };
     let outProfile = [];

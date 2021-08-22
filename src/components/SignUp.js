@@ -1,7 +1,8 @@
 /* eslint-disable indent */
-import { onNavigate } from "../main";
+import { onNavigate } from "../main.js";
 export const SignUp = () => {
-    const view = () => { return `
+    return `
+ <div class="account";   
  <div class="acount-header">
     <img src="../img/logoFormLoveBook.png" class="acount-logo" alt="LoveBook logo">
  </div>
@@ -20,16 +21,18 @@ export const SignUp = () => {
       <button type="submit" id="btnSendSignUp">Sign Up</button>
     </form>
   </div> 
-  ` };
-    const btnSendSignUp = document.getElementById('btnSendSignUp')
-    let outSignUp = [];
-    const SignUpDiv = document.createElement('div');
-    const templates = document.getElementById('templates');
-    outSignUp += view();
-    SignUpDiv.innerHTML = outSignUp;
-    SignUpDiv.classList.add('acount');
-    templates.appendChild(SignUpDiv);
-
+  </div> 
+  `
+};
+export const eventSignUp = () => {
     btnSendSignUp.addEventListener('click', () => onNavigate('/home'));
-
+    const btnSendSignUp = document.getElementById('btnSendSignUp')
 }
+
+// let outSignUp = [];
+// const SignUpDiv = document.createElement('div');
+// const templates = document.getElementById('templates');
+// outSignUp += view();
+// SignUpDiv.innerHTML = outSignUp;
+// SignUpDiv.classList.add('acount');
+// templates.appendChild(SignUpDiv);

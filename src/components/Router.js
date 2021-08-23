@@ -4,6 +4,7 @@ import { SignUp } from "./SignUp.js";
 import { Profile } from "./Profile.js";
 import { Home } from "./Home.js";
 
+const main = document.getElementById('templates');
 export const routes = {
     '/': Login,
     '/signUp': SignUp,

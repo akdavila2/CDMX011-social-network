@@ -9,15 +9,20 @@ import { routes } from './components/Router.js';
 const main = document.getElementById('templates');
 const header = document.getElementById('header');
 const render = (pathname) => {
-        main.innerHTML = (routes[pathname].template());
-        pathname.event();
+        if (!routes.hasOwnProperty(pathname)) {
+            main.innerHTML = `<img src = 'img/error404.png'/>`;
+            return;
+        }
+        const component = routes[pathname];
+        main.innerHTML = component.template();
+        component.event();
     }
     //Se manda a llamar el template 
-main.innerHTML = render(Login);
+main.innerHTML = render('/');
 //Metodo para verificar usuario logueado 
 auth.onAuthStateChanged((user) => {
     if (user) {
-        header.innerHTML = render(Home);
+        header.innerHTML = render('/home');
         eventHome();
         main.innerHTML = 'posts';
         const logout = document.querySelector('#logout');
@@ -32,11 +37,11 @@ auth.onAuthStateChanged((user) => {
         })
     } else {
         //Se crea un evento para el botón de crear cuenta
-        main.innerHTML = render(Login);
+        main.innerHTML = render('/');
         const createAccount = document.querySelector('#signup');
         createAccount.addEventListener('click', e => {
             e.preventDefault();
-            main.innerHTML = render(SignUp);
+            main.innerHTML = render('/signUp');
             const signUpForm = document.querySelector('#signupForm');
             signUpForm.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -64,7 +69,7 @@ auth.onAuthStateChanged((user) => {
 // loginForm.addEventListener('submit', (e) => {
 //     e.preventDefault();
 //     auth
-//         .createUserWithEmailAndPassword(email, password)
+//         .signInWithEmailAndPassword(email, password)
 //         .then((userCredential) => {
 //             const user = userCredential.user;
 //             console.log(user);

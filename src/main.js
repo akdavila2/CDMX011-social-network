@@ -1,3 +1,4 @@
+
 /* eslint-disable indent */
 import { authentification } from './lib/index.js';
 import { routes } from './components/Router.js';

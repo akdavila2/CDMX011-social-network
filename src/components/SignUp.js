@@ -1,7 +1,7 @@
 /* eslint-disable indent */
-import { onNavigate } from "../main.js";
-export const SignUp = () => {
-    return `
+import { onNavigate } from "./Router.js";
+export const SignUp = {
+    template: () => { return `
  <div class="account";   
  <div class="acount-header">
     <img src="../img/logoFormLoveBook.png" class="acount-logo" alt="LoveBook logo">
@@ -22,17 +22,10 @@ export const SignUp = () => {
     </form>
   </div> 
   </div> 
-  `
-};
-export const eventSignUp = () => {
-    btnSendSignUp.addEventListener('click', () => onNavigate('/home'));
-    const btnSendSignUp = document.getElementById('btnSendSignUp')
-}
+  ` },
+    event: () => {
+        const btnSendSignUp = document.getElementById('btnSendSignUp')
+        btnSendSignUp.addEventListener('click', () => onNavigate('/home'));
 
-// let outSignUp = [];
-// const SignUpDiv = document.createElement('div');
-// const templates = document.getElementById('templates');
-// outSignUp += view();
-// SignUpDiv.innerHTML = outSignUp;
-// SignUpDiv.classList.add('acount');
-// templates.appendChild(SignUpDiv);
+    }
+}

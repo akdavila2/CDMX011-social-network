@@ -1,29 +1,23 @@
 /* eslint-disable indent */
 import { authentification } from './lib/index.js';
-import { Login, eventLogin } from './components/Login.js';
-import { Home, eventHome } from './components/Home.js';
-import { SignUp, eventSignUp } from './components/SignUp.js';
+import { Login } from './components/Login.js';
+import { Home } from './components/Home.js';
+import { SignUp } from './components/SignUp.js';
 import { Profile } from './components/Profile.js';
+import { routes } from './components/Router.js';
 
-//Rutas para el SPA 
-const routes = {
-    '/': Login,
-    '/signUp': SignUp,
-    '/profile': Profile,
-    '/home': Home,
-};
-
-
-// //Se manda a llamar el template principal desde template.js
 const main = document.getElementById('templates');
 const header = document.getElementById('header');
-main.innerHTML = Login();
-eventLogin();
-
+const render = (pathname) => {
+        main.innerHTML = (routes[pathname].template());
+        pathname.event();
+    }
+    //Se manda a llamar el template 
+main.innerHTML = render(Login);
 //Metodo para verificar usuario logueado 
 auth.onAuthStateChanged((user) => {
     if (user) {
-        header.innerHTML = Home();
+        header.innerHTML = render(Home);
         eventHome();
         main.innerHTML = 'posts';
         const logout = document.querySelector('#logout');
@@ -38,12 +32,11 @@ auth.onAuthStateChanged((user) => {
         })
     } else {
         //Se crea un evento para el botón de crear cuenta
-        main.innerHTML = Login();
-        eventLogin();
+        main.innerHTML = render(Login);
         const createAccount = document.querySelector('#signup');
         createAccount.addEventListener('click', e => {
             e.preventDefault();
-            main.innerHTML = SignUp(), eventSignUp();
+            main.innerHTML = render(SignUp);
             const signUpForm = document.querySelector('#signupForm');
             signUpForm.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -62,19 +55,26 @@ auth.onAuthStateChanged((user) => {
     }
 });
 
+//Eventos para poder hacer Login
 
-export const onNavigate = (pathname) => {
-    window.history.pushState({},
-        pathname,
-        window.location.origin + pathname,
-    );
-    while (main.firstChild) {
-        main.removeChild(main.firstChild);
-    }
-    main.appendChild(routes[pathname]());
-};
-const component = routes[window.location.pathname];
-window.onpopstate = () => {
-    main.appendChild(component());
-};
-main.appendChild(component());
+// const loginForm = document.getElementById('login-form');
+// const emailLogin = document.getElementById('login-email';)
+// const passwordLogin = document.getElementById('login-password');
+
+// loginForm.addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     auth
+//         .createUserWithEmailAndPassword(email, password)
+//         .then((userCredential) => {
+//             const user = userCredential.user;
+//             console.log(user);
+//             return 'exitoso';
+//         })
+//         .catch((error) => {
+//             const errorCode = error.code;
+//             console.log(errorCode);
+//             const errorMessage = error.message;
+//             console.log(errorMessage);
+//             return errorMessage;
+//         });
+// })

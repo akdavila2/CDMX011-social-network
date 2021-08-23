@@ -1,6 +1,6 @@
-import { onNavigate } from "../main.js";
-export const Login = () => {
-    return `
+import { onNavigate } from "./Router.js";
+export const Login = {
+    template: () => { return `
 <div class="acount">
 <div class="acount-header">
 <img src="../img/logoFormLoveBook.png" class="acount-logo" alt="LoveBook logo">
@@ -29,18 +29,11 @@ export const Login = () => {
     <button id="signup">Sign Up</button>
 </div>
 </div>
-</div>`
+</div>` },
+    event: () => {
+        const btnLogin = document.getElementById('btnLogin');
+        const btnSignUp = document.getElementById('signup');
+        btnLogin.addEventListener('click', () => onNavigate('/home'));
+        btnSignUp.addEventListener('click', () => onNavigate('/signUp'));
+    }
 };
-export const eventLogin = () => {
-    const btnLogin = document.getElementById('btnLogin');
-    const btnSignUp = document.getElementById('signup');
-    //let outLogin = [];
-    //const LoginDiv = document.createElement('div');
-    //const templates = document.getElementById('templates');
-    //outLogin += Login();
-    //LoginDiv.innerHTML = outLogin
-    //LoginDiv.classList.add('acount');
-    //templates.appendChild(LoginDiv);
-    btnLogin.addEventListener('click', () => onNavigate('/home'));
-    btnSignUp.addEventListener('click', () => onNavigate('/signUp'));
-}

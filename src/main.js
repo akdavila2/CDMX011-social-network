@@ -1,8 +1,89 @@
-
 /* eslint-disable indent */
-import { authentification } from './lib/index.js';
-import { routes } from './components/Router.js';
-import { actions } from './components/Actions.js';
+//import { authentification } from './lib/index.js';
+
+
+import  login  from './components/Login.js';
+import  signUp from './components/SignUp.js';
+import  profile  from './components/Profile.js';
+import  home  from './components/Home.js';
+
+const rootDiv = document.getElementById('root');
+
+const router = {
+    '/login': login,
+    '/signUp': signUp,
+    '/profile': profile,
+    '/home': home,
+  };
+  
+  
+  const component = router[window.location.pathname];
+    
+
+  export const onNavigate = (pathname) => {
+    window.history.pushState(
+      {},
+      pathname,
+      window.location.origin + pathname,
+    );
+  
+    while (rootDiv.firstChild) {
+      rootDiv.removeChild(rootDiv.firstChild);
+    }
+  
+    rootDiv.innerHTML(router[pathname]());
+  };
+  
+  
+  window.onpopstate = () => {
+    while (rootDiv.firstChild) {
+      rootDiv.removeChild(rootDiv.firstChild);
+    }
+    rootDiv.innerHTML(router[window.location.pathname]());
+  };
+  
+  rootDiv.innerHTML = component();
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*
+const main = document.getElementById('root');
+export const onNavigate = (pathname) => {
+    window.history.pushState({},
+        pathname,
+        window.location.origin + pathname,
+    );
+    while (main.firstChild) {
+        main.removeChild(main.firstChild);
+    }
+    main.innerHTML = (routes[pathname]());
+};
+console.log(10, routes)
+if (routes.hasOwnProperty(window.location.pathname)) {
+    const component = routes[window.location.pathname];
+    window.onpopstate = () => {
+        while (main.firstChild) {
+            main.removeChild(rootDiv.firstChild);
+        }
+        main.innerHTML = (routes[window.location.pathname]());
+
+    };
+    main.innerHTML = (component());
+}
+
 
 const main = document.getElementById('templates');
 const header = document.getElementById('header');
@@ -58,7 +139,7 @@ auth.onAuthStateChanged((user) => {
       });
     });
   }
-});
+});*/
 
 //Eventos para poder hacer Login
 

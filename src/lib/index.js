@@ -1,6 +1,6 @@
-
 /* eslint-disable indent */
 // aqui exportaras las funciones que necesites
+
 export const authentification = (email, password) => {
     auth
         .createUserWithEmailAndPassword(email, password)

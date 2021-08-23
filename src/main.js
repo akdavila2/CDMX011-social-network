@@ -3,23 +3,46 @@
 
 import { authentification } from './lib/index.js';
 import { pages } from './lib/templates.js';
+import { Home } from './components/Home.js'
+import { Login } from './components/Login.js'
+import { Register } from './components/Register.js'
+import { Navbar } from './components/Navbar.js'
 
 //Rutas para el SPA 
 const routes = {
-    '/': pages.home.template,
-    '/signup': pages.signup.template,
-    '/signin': pages.signin.template
+    '/home': Home,
+    '/register': Register,
+    '/signin': Login
 }; 
 
 //Se manda a llamar el template principal desde template.js
 const main = document.getElementById('templates');
 const header = document.getElementById('header')
-main.innerHTML = pages.signin.template;
+
+main.innerHTML = routes['/signin']
+
+export const onNavigate = (pathname) => {
+    window.history.pushState(
+        {},
+        pathname,
+        window.location.origin + pathname,
+    )
+
+    main.innerHTML = routes[pathname]()
+}
+
+const component = routes[window.location.pathname]
+
+window.onpopstate = () => {
+    main.innerHTML = routes[window.location.pathname]()
+}
+
+
 //Metodo para verificar usuario logueado 
 auth.onAuthStateChanged((user) => {
     if (user) {
-        header.innerHTML = pages.navBar.template
-        main.innerHTML = pages.home.template
+        header.innerHTML = Navbar()
+        onNavigate('/')
         const logout = document.querySelector('#logout');
         logout.addEventListener('click', (e) => {
             e.preventDefault();
@@ -30,13 +53,14 @@ auth.onAuthStateChanged((user) => {
                 }).catch((error) => { // An error happened. 
                 });
         })
+        
     } else {
         //Se crea un evento para el botón de crear cuenta
-        main.innerHTML = pages.signin.templ;
+        onNavigate('/signin')
         const createAccount = document.querySelector('#signup');
         createAccount.addEventListener('click', e => {
             e.preventDefault();
-            main.innerHTML = pages.signup.template;
+            onNavigate('/register')
             const signUpForm = document.querySelector('#signupForm');
             signUpForm.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -53,7 +77,7 @@ auth.onAuthStateChanged((user) => {
             })
         })
     }
-});
+}); 
 
 
 

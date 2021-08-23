@@ -1,17 +1,5 @@
-//Rutas para el SPA 
-import { Login } from "./Login.js";
-import { SignUp } from "./SignUp.js";
-import { Profile } from "./Profile.js";
-import { Home } from "./Home.js";
-
+import { routes } from "./routes.js";
 const main = document.getElementById('templates');
-export const routes = {
-    '/': Login,
-    '/signUp': SignUp,
-    '/profile': Profile,
-    '/home': Home,
-};
-
 export const onNavigate = (pathname) => {
     window.history.pushState({},
         pathname,

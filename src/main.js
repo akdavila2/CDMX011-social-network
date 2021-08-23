@@ -4,7 +4,7 @@ import { Login } from './components/Login.js';
 import { Home } from './components/Home.js';
 import { SignUp } from './components/SignUp.js';
 import { Profile } from './components/Profile.js';
-import { routes } from './components/Router.js';
+import { routes } from './components/routes.js';
 
 const main = document.getElementById('templates');
 const header = document.getElementById('header');
@@ -22,8 +22,7 @@ main.innerHTML = render('/');
 //Metodo para verificar usuario logueado 
 auth.onAuthStateChanged((user) => {
     if (user) {
-        header.innerHTML = render('/home');
-        eventHome();
+        render('/home');
         main.innerHTML = 'posts';
         const logout = document.querySelector('#logout');
         logout.addEventListener('click', (e) => {
@@ -37,11 +36,11 @@ auth.onAuthStateChanged((user) => {
         })
     } else {
         //Se crea un evento para el botón de crear cuenta
-        main.innerHTML = render('/');
+        render('/');
         const createAccount = document.querySelector('#signup');
         createAccount.addEventListener('click', e => {
             e.preventDefault();
-            main.innerHTML = render('/signUp');
+            render('/signUp');
             const signUpForm = document.querySelector('#signupForm');
             signUpForm.addEventListener('submit', (e) => {
                 e.preventDefault();

@@ -1,5 +1,9 @@
-export function SignUp() {
-  return `
+import { router } from "../lib/index.js";
+import { Home } from "./Home.js";
+
+export const SignUp = {
+    template() {
+        const view = `
  <div class="account";   
  <div class="acount-header">
     <img src="../img/logoFormLoveBook.png" class="acount-logo" alt="LoveBook logo">
@@ -21,4 +25,12 @@ export function SignUp() {
   </div> 
   </div> 
   `;
-}
+        document.getElementById('root').innerHTML = view;
+        const btnSendSignUp = document.getElementById('btnSendSignUp');
+        btnSendSignUp.addEventListener('click', (e) => {
+            e.preventDefault();
+            router.onNavigate('/home');
+            Home.template();
+        });
+    },
+};

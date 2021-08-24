@@ -1,5 +1,10 @@
-export function Login() {
-  return `
+import { router } from "../lib/index.js";
+import { Home } from "./Home.js";
+import { SignUp } from "./SignUp.js";
+
+export const Login = {
+    template() {
+        const view = `
 <div class="acount">
 <div class="acount-header">
 <img src="../img/logoFormLoveBook.png" class="acount-logo" alt="LoveBook logo">
@@ -29,5 +34,20 @@ export function Login() {
 </div>
 </div>
 </div>`;
-}
 
+        document.getElementById('root').innerHTML = view;
+
+        const btnLogin = document.getElementById('btnLogin');
+        const btnSignUp = document.getElementById('signup');
+        btnLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            router.onNavigate('/home');
+            Home.template();
+        });
+        btnSignUp.addEventListener('click', (e) => {
+            e.preventDefault();
+            router.onNavigate('/signUp');
+            SignUp.template();
+        });
+    },
+};

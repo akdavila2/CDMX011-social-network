@@ -33,3 +33,10 @@ export const login = (email, password) => {
             return errorMessage;
         });
 }
+export const router = {
+    onNavigate(pathname) {
+        window.history.pushState({},
+            pathname,
+            window.location.origin + pathname);
+    },
+};

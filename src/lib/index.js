@@ -17,22 +17,6 @@ export const authentification = (email, password) => {
         });
 }
 
-export const login = (email, password) => {
-    auth
-        .signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            console.log(1, user, 2, 'Usuario Logueado');
-            return 'exitoso';
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            console.log(errorCode);
-            const errorMessage = error.message;
-            console.log(errorMessage);
-            return errorMessage;
-        });
-}
 export const router = {
     onNavigate(pathname) {
         window.history.pushState({},

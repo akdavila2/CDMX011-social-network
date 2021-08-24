@@ -2,7 +2,7 @@ import { router } from "../lib/index.js";
 import { Home } from "./Home.js";
 
 export const SignUp = {
-    template() {
+    template: () => {
         const view = `
  <div class="account";   
  <div class="acount-header">

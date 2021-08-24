@@ -3,7 +3,7 @@ import { Home } from "./Home.js";
 import { SignUp } from "./SignUp.js";
 
 export const Login = {
-    template() {
+    template: () => {
         const view = `
 <div class="acount">
 <div class="acount-header">

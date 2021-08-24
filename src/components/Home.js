@@ -2,7 +2,7 @@ import { router } from "../lib/index.js";
 import { Login } from "./Login.js";
 import { Profile } from "./Profile.js";
 export const Home = {
-    template() {
+    template: () => {
         const view = `
 <nav>
     <div class="logo-nav">

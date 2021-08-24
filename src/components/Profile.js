@@ -1,7 +1,7 @@
 import { router } from "../lib/index.js";
 import { Home } from "./Home.js";
 export const Profile = {
-    template() {
+    template: () => {
         const view = `
 <nav>
     <div class="logo-nav">

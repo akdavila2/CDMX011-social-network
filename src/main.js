@@ -11,7 +11,7 @@ const routes = {
 
 window.addEventListener('load', () => {
     routes[window.location.pathname].template();
-});
+}); 
 
 window.onpopstate = () => {
     routes[window.location.pathname].template();

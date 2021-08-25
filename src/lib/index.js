@@ -1,16 +1,26 @@
+/* eslint-disable indent */
 // aqui exportaras las funciones que necesites
-
 export const authentification = (email, password) => {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+    auth
+        .createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            let user = userCredential.user;
-            return "exitoso"
+            const user = userCredential.user;
+            console.log(user);
+            return 'exitoso';
         })
         .catch((error) => {
-            let errorCode = error.code;
-            let errorMessage = error.message;
-            // ..
-            return errorMessage
+            const errorCode = error.code;
+            console.log(errorCode);
+            const errorMessage = error.message;
+            console.log(errorMessage);
+            return errorMessage;
         });
+}
 
+export const router = {
+    onNavigate(pathname) {
+        window.history.pushState({},
+            pathname,
+            window.location.origin + pathname);
+    },
 };

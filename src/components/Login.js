@@ -1,36 +1,53 @@
-import { onNavigate } from '../main.js'
+import { router } from "../lib/index.js";
+import { Home } from "./Home.js";
+import { SignUp } from "./SignUp.js";
 
-export const Login = () => {
-    const template = 
-    `<div class="acount" >
-        <div class="acount-header">
-            <img src="../img/logo-nav.png" class="acount-logo"alt="LoveBook logo">
-        </div>
-        <div class="log-content">
-            <div class="login-user">
-                <form action="" id="login-form" class="form">
-                    <label for="login-email">Email</label>
-                    <input type="email" id="login-email" required>
-                    <label for="login-password">Password</label>                           
-                    <input type="password" id="login-password" required>
-                    <button type="submit" class="btn login-btn">Login</button>
-                </form>
-            </div>
-            <div class="division">
-            <hr class="division-1"> 
-            <p class="division-2">O</p> 
-            <hr class="division-3">
-            </div>
-            
-            <div class="login-google">
-            <img src="../img/icongoogle.png" alt="logo google" class="logo-google"> <p> Login with google</p>
-            </div>
-            <div>
-                <button id="signup">Create an account</button>
-            </div>
-        </div>
-    </div>
-     `
+export const Login = {
+    template: () => {
+        const view = `
+<div class="acount">
+<div class="acount-header">
+<img src="../img/logoFormLoveBook.png" class="acount-logo" alt="LoveBook logo">
+</div>
+<div class="log-content">
+<div class="login-user">
+    <form action="" id="login-form" class="form">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" required>
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" required>
+        <button type="submit" id="btnLogin">Login</button>
+    </form>
+</div>
+<div class="division">
+    <hr class="division-1">
+    <p class="division-2">O</p>
+    <hr class="division-3">
+</div>
+<div class="login-google">
+    <img src="../img/icongoogle.png" alt="logo google" class="logo-google">
+    <p>Login with google</p>
+</div>
+<div class="pieform">
+    <p style="font-size: 12px;">You do not have an account</p>
+    <button id="signup">Sign Up</button>
+</div>
+</div>
+</div>`;
 
-     return template
-}
+        document.getElementById('root').innerHTML = view;
+
+        const btnLogin = document.getElementById('btnLogin');
+        const btnSignUp = document.getElementById('signup');
+        btnLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            router.onNavigate('/home');
+            Home.template();
+        });
+        btnSignUp.addEventListener('click', (e) => {
+            e.preventDefault();
+            router.onNavigate('/signUp');
+            SignUp.template();
+        });
+    },
+};

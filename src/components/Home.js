@@ -18,13 +18,16 @@ export const Home = {
             </li>
         </ul>
     </div>
-    <div class="post">
-    <a href="/profile" id="profilePerfil"><img class= "btm-post"src="../img/addpostpequeño.png"></a>
-    </div>
 </nav>
+<div class="post">
+    <textarea id="review" placeholder="Share your opinion"></textarea>
+    <a href="/profile" id="profilePerfil"><img class="icon-post" src="../img/plusazul.png">Add post</a>
+
+</div>
+
 `;
         document.getElementById('root').innerHTML = view;
-        const profilePerfil = document.querySelector('#profilePerfil');
+        const profilePerfil = document.getElementsByClassName('#profilePerfil');
         const logout = document.getElementById('logout');
         logout.addEventListener('click', (e) => {
             e.preventDefault();

@@ -1,4 +1,4 @@
-import { routes } from "./router/router";
+import { routes } from "./router/router.js";
 
 
 // window.addEventListener('load', () => {
@@ -9,6 +9,5 @@ import { routes } from "./router/router";
 //     routes[window.location.pathname].template();
 // };
 
-const rootDiv = document.querySelector('#root');
-const homeViewFunction = routes[window.location.pathname];
-homeViewFunction(rootDiv);
+const component = routes[window.location.pathname]
+document.getElementById('root').appendChild(component())

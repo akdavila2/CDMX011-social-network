@@ -1,6 +1,6 @@
 import { onNavigate } from "../router/router.js";
 export const Profile = () => {
-        const view = `
+    const view = `
         <nav>
         <div class="logo-nav">
             <img class="logo-nav" src="../img/logo-nav2.png" alt="">
@@ -40,16 +40,16 @@ export const Profile = () => {
  
 </div>`;
 
-        const divProfile = document.createElement('div');
-        divProfile.setAttribute('id', 'profileContainer');
-        divProfile.classList.add('acount');
-        divProfile.innerHTML = view;
+    const divProfile = document.createElement('div');
+    divProfile.setAttribute('id', 'profileContainer');
+    divProfile.classList.add('acount');
+    divProfile.innerHTML = view;
 
-        const saveprofile = divProfile.querySelector('#btnProfile');
-        saveprofile.addEventListener('click', (e) => {
-            e.preventDefault();
-            onNavigate('/home');
+    const saveprofile = divProfile.querySelector('#btnProfile');
+    saveprofile.addEventListener('click', (e) => {
+        e.preventDefault();
+        onNavigate('/home');
 
-        });
-        return divProfile;
-    },
+    });
+    return divProfile;
+}

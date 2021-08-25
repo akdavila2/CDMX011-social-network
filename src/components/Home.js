@@ -1,6 +1,6 @@
 import { onNavigate } from "../router/router.js";
 export const Home = () => {
-        const view = `
+    const view = `
 <nav>
     <div class="logo-nav">
         <img class="logo-nav" src="../img/logo-nav2.png" alt="">
@@ -23,22 +23,22 @@ export const Home = () => {
 </div>
 
 `;
-        const divHome = document.createElement('div');
-        divHome.setAttribute('id', 'homeContainer');
-        divLogin.classList.add('divHome');
-        divHome.innerHTML = view;
+    const divHome = document.createElement('div');
+    divHome.setAttribute('id', 'homeContainer');
+    divHome.classList.add('divHome');
+    divHome.innerHTML = view;
 
 
-        const profilePerfil = divHome.querySelector('#profilePerfil');
-        const logout = divHome.querySelector('#logout');
-        logout.addEventListener('click', (e) => {
-            e.preventDefault();
-            onNavigate('/');
-        });
-        profilePerfil.addEventListener('click', (e) => {
-            e.preventDefault();
-            onNavigate('/profile');
+    const profilePerfil = divHome.querySelector('#profilePerfil');
+    const logout = divHome.querySelector('#logout');
+    logout.addEventListener('click', (e) => {
+        e.preventDefault();
+        onNavigate('/');
+    });
+    profilePerfil.addEventListener('click', (e) => {
+        e.preventDefault();
+        onNavigate('/profile');
 
-        });
-        return divHome;
-    },
+    });
+    return divHome;
+}

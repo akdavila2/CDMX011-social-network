@@ -1,6 +1,6 @@
 import { onNavigate } from "../router/router.js";
 export const SignUp = () => {
-        const view = `
+    const view = `
 <div class="acount">
     <div class="acount-header">
         <img src="../img/logoFormLoveBook.png" class="acount-logo" alt="LoveBook logo">
@@ -23,17 +23,17 @@ export const SignUp = () => {
     </div>
     `;
 
-        const divSignUp = document.createElement('div');
-        divSignUp.setAttribute('id', 'signUpContainer');
-        divSignUp.classList.add('acount');
-        divSignUp.innerHTML = view;
+    const divSignUp = document.createElement('div');
+    divSignUp.setAttribute('id', 'signUpContainer');
+    divSignUp.classList.add('acount');
+    divSignUp.innerHTML = view;
 
 
-        const btnSendSignUp = divSignUp.querySelector('#btnSendSignUp');
-        btnSendSignUp.addEventListener('click', (e) => {
-            e.preventDefault();
-            onNavigate('/home');
+    const btnSendSignUp = divSignUp.querySelector('#btnSendSignUp');
+    btnSendSignUp.addEventListener('click', (e) => {
+        e.preventDefault();
+        onNavigate('/home');
 
-        });
-        return divSignUp;
-    },
+    });
+    return divSignUp;
+}

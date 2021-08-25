@@ -1,7 +1,7 @@
 import { onNavigate } from "../router/router.js";
 
 export const Login = () => {
-        const view = `
+    const view = `
 <div class="acount-header">
 <img src="../img/logoFormLoveBook.png" class="acount-logo" alt="LoveBook logo">
 </div>
@@ -30,22 +30,22 @@ export const Login = () => {
 </div>
 
 </div>`;
-        const divLogin = document.createElement('div');
-        divLogin.setAttribute('id', 'loginContainer');
-        divLogin.classList.add('acount');
-        divLogin.innerHTML = view;
+    const divLogin = document.createElement('div');
+    divLogin.setAttribute('id', 'loginContainer');
+    divLogin.classList.add('acount');
+    divLogin.innerHTML = view;
 
-        const btnLogin = divLogin.querySelector('#btnLogin');
-        const btnSignUp = divLogin.querySelector('#signup');
-        btnLogin.addEventListener('click', (e) => {
-            e.preventDefault();
-            onNavigate('/home');
+    const btnLogin = divLogin.querySelector('#btnLogin');
+    const btnSignUp = divLogin.querySelector('#signup');
+    btnLogin.addEventListener('click', (e) => {
+        e.preventDefault();
+        onNavigate('/home');
 
-        });
-        btnSignUp.addEventListener('click', (e) => {
-            e.preventDefault();
-            onNavigate('/signUp');
+    });
+    btnSignUp.addEventListener('click', (e) => {
+        e.preventDefault();
+        onNavigate('/signUp');
 
-        });
-        return divLogin;
-    },
+    });
+    return divLogin;
+}

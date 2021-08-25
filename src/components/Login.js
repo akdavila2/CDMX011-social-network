@@ -1,11 +1,7 @@
-import { router } from "../lib/index.js";
-import { Home } from "./Home.js";
-import { SignUp } from "./SignUp.js";
+import { onNavigate } from "../router/router.js";
 
-export const Login = {
-    template: () => {
+export const Login = () => {
         const view = `
-<div class="acount">
 <div class="acount-header">
 <img src="../img/logoFormLoveBook.png" class="acount-logo" alt="LoveBook logo">
 </div>
@@ -32,22 +28,24 @@ export const Login = {
     <p style="font-size: 12px;">You do not have an account</p>
     <button id="signup">Sign Up</button>
 </div>
-</div>
+
 </div>`;
+        const divLogin = document.createElement('div');
+        divLogin.setAttribute('id', 'loginContainer');
+        divLogin.classList.add('acount');
+        divLogin.innerHTML = view;
 
-        document.getElementById('root').innerHTML = view;
-
-        const btnLogin = document.getElementById('btnLogin');
-        const btnSignUp = document.getElementById('signup');
+        const btnLogin = divLogin.querySelector('#btnLogin');
+        const btnSignUp = divLogin.querySelector('#signup');
         btnLogin.addEventListener('click', (e) => {
             e.preventDefault();
-            router.onNavigate('/home');
-            Home.template();
+            onNavigate('/home');
+
         });
         btnSignUp.addEventListener('click', (e) => {
             e.preventDefault();
-            router.onNavigate('/signUp');
-            SignUp.template();
+            onNavigate('/signUp');
+
         });
+        return divLogin;
     },
-};

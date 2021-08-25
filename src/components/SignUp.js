@@ -1,7 +1,5 @@
-import { router } from "../lib/index.js";
-import { Home } from "./Home.js";
-export const SignUp = {
-    template: () => {
+import { onNavigate } from "../router/router.js";
+export const SignUp = () => {
         const view = `
 <div class="acount">
     <div class="acount-header">
@@ -24,12 +22,18 @@ export const SignUp = {
         </div>
     </div>
     `;
-        document.getElementById('root').innerHTML = view;
-        const btnSendSignUp = document.getElementById('btnSendSignUp');
+
+        const divSignUp = document.createElement('div');
+        divSignUp.setAttribute('id', 'signUpContainer');
+        divSignUp.classList.add('acount');
+        divSignUp.innerHTML = view;
+
+
+        const btnSendSignUp = divSignUp.querySelector('#btnSendSignUp');
         btnSendSignUp.addEventListener('click', (e) => {
             e.preventDefault();
-            router.onNavigate('/home');
-            Home.template();
+            onNavigate('/home');
+
         });
+        return divSignUp;
     },
-};

@@ -1,7 +1,5 @@
-import { router } from "../lib/index.js";
-import { Home } from "./Home.js";
-export const Profile = {
-    template: () => {
+import { onNavigate } from "../router/router.js";
+export const Profile = () => {
         const view = `
         <nav>
         <div class="logo-nav">
@@ -24,7 +22,6 @@ export const Profile = {
     
     </div>
 <div class="acount">
-    
         <div class="login-user">
             <h3>Edit Profile</h3>
              <form action="" id="profileForm" class="form">
@@ -42,12 +39,17 @@ export const Profile = {
         </div>
  
 </div>`;
-        document.getElementById('root').innerHTML = view;
-        const saveprofile = document.getElementById('btnProfile');
+
+        const divProfile = document.createElement('div');
+        divProfile.setAttribute('id', 'profileContainer');
+        divProfile.classList.add('acount');
+        divProfile.innerHTML = view;
+
+        const saveprofile = divProfile.querySelector('#btnProfile');
         saveprofile.addEventListener('click', (e) => {
             e.preventDefault();
-            router.onNavigate('/home');
-            Home.template();
+            onNavigate('/home');
+
         });
+        return divProfile;
     },
-};

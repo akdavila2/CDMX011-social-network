@@ -1,8 +1,5 @@
-import { router } from "../lib/index.js";
-import { Login } from "./Login.js";
-import { Profile } from "./Profile.js";
-export const Home = {
-    template: () => {
+import { onNavigate } from "../router/router.js";
+export const Home = () => {
         const view = `
 <nav>
     <div class="logo-nav">
@@ -26,18 +23,22 @@ export const Home = {
 </div>
 
 `;
-        document.getElementById('root').innerHTML = view;
-        const profilePerfil = document.getElementsByClassName('#profilePerfil');
-        const logout = document.getElementById('logout');
+        const divHome = document.createElement('div');
+        divHome.setAttribute('id', 'homeContainer');
+        divLogin.classList.add('divHome');
+        divHome.innerHTML = view;
+
+
+        const profilePerfil = divHome.querySelector('#profilePerfil');
+        const logout = divHome.querySelector('#logout');
         logout.addEventListener('click', (e) => {
             e.preventDefault();
-            router.onNavigate('/');
-            Login.template();
+            onNavigate('/');
         });
         profilePerfil.addEventListener('click', (e) => {
             e.preventDefault();
-            router.onNavigate('/profile');
-            Profile.template();
+            onNavigate('/profile');
+
         });
+        return divHome;
     },
-};

@@ -44,6 +44,3 @@ export const Profile = () => {
         return profileDiv
 
 };
-
-
-

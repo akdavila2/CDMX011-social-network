@@ -1,0 +1,36 @@
+import { onNavigate } from "../router/router.js"
+
+export const Navbar = () => {
+    const template = 
+    `
+    <nav>
+    <div class="logo-nav">
+        <img class="logo-nav" src="../img/logo-nav2.png" alt="">
+    </div>
+    <div class="menu-nav">
+        <ul>
+            <li><a id="logout" href="">Sign off</a></li>
+            <li><a href="#" id="profilePerfil"><img src="../img/iconsusuario.png">Profile</a></li>
+        </ul>
+    </div>
+    </nav>
+`
+    const navBar = document.createElement('header')
+    navBar.setAttribute("class", "header-div")
+    navBar.innerHTML  = template
+
+    const profile = navBar.querySelector('#profilePerfil');
+    const logout = navBar.querySelector('#logout');
+    
+    logout.addEventListener('click', (e) => {
+        e.preventDefault();
+        onNavigate('/');
+    });
+
+    profile.addEventListener('click', (e) => {
+        e.preventDefault();
+        onNavigate('/profile');
+    });
+
+     return navBar
+}

@@ -148,8 +148,8 @@ button {
 
 .container-1 {
     width: 100%;
-    margin-top: 0px;
     height: 95vh;
+    margin-top: 0px;
 }
 
 .acount {
@@ -173,6 +173,27 @@ h3 {
     flex-direction: column;
     justify-content: center;
     margin: 1rem;
+}
+
+.header-div {
+    height: fit-content;
+}
+.name-photo{
+    height: 100%;
+}
+
+.profile-content{
+    height: 100px;
+}
+.publication {
+    height: 100px;
+}
+
+.publication p {
+    line-height: 10px;
+}
+.post{
+    height: 100px;
 }
 
 .form {

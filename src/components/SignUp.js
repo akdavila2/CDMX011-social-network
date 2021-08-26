@@ -1,14 +1,11 @@
-import { router } from "../lib/index.js";
-import { Home } from "./Home.js";
-export const SignUp = {
-    template: () => {
-        const view = `
-<div class="acount">
-    <div class="acount-header">
-        <img src="../img/logoFormLoveBook.png" class="acount-logo" alt="LoveBook logo">
-    </div>
-    <div class="log-content">
-        <div class="login-user">
+import { onNavigate } from "../router/router.js";
+
+export const SignUp = () => {
+    const view = `
+        <div class="acount-header">
+            <img src="../img/logoFormLoveBook.png" class="acount-logo" alt="LoveBook logo">
+        </div>
+        <div class="log-content">
             <form action="" id="signupForm" class="form">
                 <label for="signupUserName">Username</label>
                 <input type="text" id="signupUserName">
@@ -22,14 +19,19 @@ export const SignUp = {
                 <button type="submit" id="btnSendSignUp">Sign Up</button>
             </form>
         </div>
-    </div>
-    `;
-        document.getElementById('root').innerHTML = view;
-        const btnSendSignUp = document.getElementById('btnSendSignUp');
-        btnSendSignUp.addEventListener('click', (e) => {
-            e.preventDefault();
-            router.onNavigate('/home');
-            Home.template();
-        });
-    },
+        `
+
+    const loginContainer = document.createElement('div')
+    loginContainer.setAttribute("class", "acount")
+
+    loginContainer.innerHTML = view;
+
+    const btnSendSignUp = loginContainer.querySelector('#btnSendSignUp');
+
+    btnSendSignUp.addEventListener('click', (e) => {
+        e.preventDefault();
+        onNavigate('/home');
+    });
+
+    return loginContainer
 };

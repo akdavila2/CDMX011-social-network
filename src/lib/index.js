@@ -14,3 +14,14 @@ export const authentification = (email, password) => {
             return errorMessage;
         });
 }
+
+// // export const Login = (email, password) => {
+// //     auth
+// //         .signInWithEmailAndPassword(email, password)
+// //         .then((userCredential) => {
+// //             const user = userCredential.user;
+// //             console.log(user);
+// //             return 'exitoso';
+// //         })
+
+// // }

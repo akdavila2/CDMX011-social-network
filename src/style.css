@@ -15,18 +15,35 @@ html {
     color: #968C83;
 }
 
+.img-usuario {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
 .logo-nav {
     width: 350px;
     height: 60px;
 }
 
-.icon-home {
+.icon-nav {
     height: 20px;
     width: 20px;
 }
 
 h3 {
     text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.icon-nav {
+    height: 20px;
 }
 
 .post {
@@ -178,13 +195,19 @@ h3 {
 .header-div {
     height: fit-content;
 }
-.name-photo{
+
+.name-photo {
     height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.profile-content{
+.profile-content {
     height: 100px;
 }
+
 .publication {
     height: 100px;
 }
@@ -192,7 +215,8 @@ h3 {
 .publication p {
     line-height: 10px;
 }
-.post{
+
+.post {
     height: 100px;
 }
 

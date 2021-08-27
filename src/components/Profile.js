@@ -6,6 +6,7 @@ export const Profile = () => {
         const profileNamePhoto =`
             <p>foto</p>
             <p>nombre de usuario</p>
+            <a class="edit-profile"><img src="">Edit profile</a>
         `
 
         const viewContent = 

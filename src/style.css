@@ -15,6 +15,11 @@ html {
     color: #968C83;
 }
 
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .logo-nav {
     width: 350px;
     height: 60px;
@@ -23,6 +28,10 @@ html {
 .icon-home {
     height: 20px;
     width: 20px;
+}
+
+.icon-nav {
+    height: 20px;
 }
 
 h3 {
@@ -180,8 +189,11 @@ h3 {
 }
 .name-photo{
     height: 100%;
+    line-height: 25px;
 }
-
+.edit-profile{
+    line-height: 25px;
+}
 .profile-content{
     height: 100px;
 }

@@ -1,5 +1,3 @@
-/* eslint-disable indent */
-// aqui exportaras las funciones que necesites
 export const authentification = (email, password) => {
     auth
         .createUserWithEmailAndPassword(email, password)
@@ -17,10 +15,13 @@ export const authentification = (email, password) => {
         });
 }
 
-export const router = {
-    onNavigate(pathname) {
-        window.history.pushState({},
-            pathname,
-            window.location.origin + pathname);
-    },
-};
+// // export const Login = (email, password) => {
+// //     auth
+// //         .signInWithEmailAndPassword(email, password)
+// //         .then((userCredential) => {
+// //             const user = userCredential.user;
+// //             console.log(user);
+// //             return 'exitoso';
+// //         })
+
+// // }

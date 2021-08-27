@@ -1,4 +1,5 @@
 import { onNavigate } from "../router/router.js";
+import { authentification } from "../lib/index.js";
 
 export const SignUp = () => {
     const view = `
@@ -26,12 +27,14 @@ export const SignUp = () => {
 
     loginContainer.innerHTML = view;
 
-    const btnSendSignUp = loginContainer.querySelector('#btnSendSignUp');
+    // const btnSendSignUp = loginContainer.querySelector('#btnSendSignUp');
 
-    btnSendSignUp.addEventListener('click', (e) => {
-        e.preventDefault();
-        onNavigate('/home');
-    });
-
-    return loginContainer
+    // btnSendSignUp.addEventListener('click', async(e) => {
+    //     e.preventDefault();
+    //     const signUpEmail = loginContainer.querySelector('#signupEmail').value;
+    //     const signUpPassword = loginContainer.querySelector('#signupPassword').value;
+    //     await authentification(signUpEmail, signUpPassword);
+    //     //onNavigate('/home');
+    // });
+    return loginContainer;
 };

@@ -27,14 +27,22 @@ export const SignUp = () => {
 
     loginContainer.innerHTML = view;
 
-    // const btnSendSignUp = loginContainer.querySelector('#btnSendSignUp');
+    const btnSendSignUp = loginContainer.querySelector('#btnSendSignUp');
 
-    // btnSendSignUp.addEventListener('click', async(e) => {
-    //     e.preventDefault();
-    //     const signUpEmail = loginContainer.querySelector('#signupEmail').value;
-    //     const signUpPassword = loginContainer.querySelector('#signupPassword').value;
-    //     await authentification(signUpEmail, signUpPassword);
-    //     //onNavigate('/home');
-    // });
+     btnSendSignUp.addEventListener('click', async(e) => {
+        e.preventDefault();
+        const signUpEmail = loginContainer.querySelector('#signupEmail').value;
+        const signUpPassword = loginContainer.querySelector('#signupPassword').value;
+        const signUpPassword2 = loginContainer.querySelector('#signupPassword').value;
+        const signupMesseges = loginContainer.querySelector('#btnSendSignUp');
+        if (signUpPassword === signUpPassword2){
+            await authentification(signUpEmail, signUpPassword);
+            onNavigate('/home');
+        } else {
+            signupMesseges.innerHTML = `Password doesn't match`;
+        }
+    });
+        
+    
     return loginContainer;
 };

@@ -16,3 +16,5 @@ describe('Coleccion de test sobre el DOM', () => {
         expect(typeof myFunction).toBe('function');
     });
 });
+
+//renderizado.outerHTML

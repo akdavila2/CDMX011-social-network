@@ -16,7 +16,7 @@ export const SignUp = () => {
                 <input type="password" id="signupPassword" required>
                 <label for="signupPassword2">Confirm your password</label>
                 <input type="password" id="signupPassword2" required>
-                <p id="signupMesseges"></p>
+                <div class="error-message" id="signupMesseges"></div>
                 <button type="submit" id="btnSendSignUp">Sign Up</button>
             </form>
         </div>
@@ -44,14 +44,11 @@ export const SignUp = () => {
                 await register(email, password);
                 console.log('exitoso')
                 onNavigate('/home');
-
-
-
             } catch (error) {
-                signupContainer.querySelector('#signupMesseges').innerHTML = error.message
+                signupContainer.querySelector('#signupMesseges').innerHTML = '&#x02716'.concat(' ', error.message)
             }
         } else {
-            signupMesseges.innerHTML = "Passwords do not match";
+            signupMesseges.innerHTML = "&#x02716 Passwords do not match";
         }
     });
     return signupContainer;

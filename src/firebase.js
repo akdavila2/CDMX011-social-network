@@ -43,9 +43,6 @@ export const activeSession = () => auth
         }
     });
 
-
-
-
 // // //Método para actualizar informacion basica del perfil updateProfile
 
 // // getUser.updateProfile({

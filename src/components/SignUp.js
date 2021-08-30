@@ -1,5 +1,5 @@
 import { onNavigate } from "../router/router.js";
-import { authentification } from "../lib/index.js";
+import { register } from "../firebase.js";
 
 export const SignUp = () => {
     const view = `
@@ -22,27 +22,37 @@ export const SignUp = () => {
         </div>
         `
 
-    const loginContainer = document.createElement('div')
-    loginContainer.setAttribute("class", "acount")
+    const signupContainer = document.createElement('div');
+    signupContainer.classList.add('acount');
 
-    loginContainer.innerHTML = view;
+    signupContainer.innerHTML = view;
 
-    const btnSendSignUp = loginContainer.querySelector('#btnSendSignUp');
+    const btnSendSignUp = signupContainer.querySelector('#btnSendSignUp');
 
-     btnSendSignUp.addEventListener('click', async(e) => {
-        e.preventDefault();
-        const signUpEmail = loginContainer.querySelector('#signupEmail').value;
-        const signUpPassword = loginContainer.querySelector('#signupPassword').value;
-        const signUpPassword2 = loginContainer.querySelector('#signupPassword').value;
-        const signupMesseges = loginContainer.querySelector('#btnSendSignUp');
-        if (signUpPassword === signUpPassword2){
-            await authentification(signUpEmail, signUpPassword);
-            onNavigate('/home');
+    btnSendSignUp.addEventListener('click', async(event) => {
+        event.preventDefault();
+
+        const email = signupContainer.querySelector('#signupEmail').value;
+        const password = signupContainer.querySelector('#signupPassword').value;
+        const signUpPassword2 = signupContainer.querySelector('#signupPassword2').value;
+
+        console.log(email, password);
+        if (password === signUpPassword2) {
+            console.log('si son iguales pasa');
+
+            try {
+                await register(email, password);
+                console.log('exitoso')
+                onNavigate('/home');
+
+
+
+            } catch (error) {
+                signupContainer.querySelector('#signupMesseges').innerHTML = error.message
+            }
         } else {
-            signupMesseges.innerHTML = `Password doesn't match`;
+            signupMesseges.innerHTML = "Passwords do not match";
         }
     });
-        
-    
-    return loginContainer;
+    return signupContainer;
 };

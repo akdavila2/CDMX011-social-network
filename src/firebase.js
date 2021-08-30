@@ -1,9 +1,14 @@
 const firebaseConfig = {
-    apiKey: 'AIzaSyAxKjqTudxBWi9j9i4IDKn450hmM1m_w3A',
-    authDomain: 'red-social-coaches.firebaseapp.com',
-    projectId: 'red-social-coaches',
-    appId: '1:489293961166:web:e0ae10e7b6db857d26fd9f',
+
+    apiKey: "AIzaSyCr9r5Gh3K7FUuYboZgmcX8NOcQcUr-frM",
+    authDomain: "social-network-57ba3.firebaseapp.com",
+    projectId: "social-network-57ba3",
+    storageBucket: "social-network-57ba3.appspot.com",
+    messagingSenderId: "22805731102",
+    appId: "1:22805731102:web:e9efc5d4c0937476979b0f"
+
 };
+
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -12,44 +17,43 @@ const auth = firebase.auth();
 // Initialize Firestore
 const fireSt = firebase.firestore();
 
-//Metodo que me permite registrar usuario con usuario y contraseña
-export const authentification = (email, password) => auth
+//Metodo que me permite autenticar al  usuario con usuario y contraseña
+export const register = (email, password) => auth
     .createUserWithEmailAndPassword(email, password);
 
 //Metodo que me permite acceder a mi cuenta con usuario y contraseña
 export const login = (email, password) => auth
     .signInWithEmailAndPassword(email, password);
 
+//Metodo para obtener al usuario que accedio 
+
+export const getUser = () => auth.currentUser;
+
 //Metodo para hacer que un usuario salga de la sesión
-export const logout = () => auth.signOut();
+export const signOut = () => auth.signOut();
 
 //Metodo que indica si el usuario tiene la sesión activa
 
 export const activeSession = () => auth
     .onAuthStateChanged((user) => {
         if (user) {
-            // User is signed in, see docs for a list of available properties
-            // https://firebase.google.com/docs/reference/js/firebase.User
-            var uid = user.uid;
-            // ...
+            console.log('Usuario logueado')
         } else {
-            // User is signed out
-            // ...
+            console.log('usuario logout')
         }
     });
 
-//Metodo para obtener al usuario que accedio 
 
-export const getUser = () => auth.currentUser;
 
-//Método para actualizar informacion basica del perfil updateProfile
 
-getUser.updateProfile({
-    // displayName: "Jane Q. User",
-    // photoURL: "https://example.com/jane-q-user/profile.jpg"
-})
+// // //Método para actualizar informacion basica del perfil updateProfile
 
-//Metodo para enviar un mensaje de verificación al usuario 
+// // getUser.updateProfile({
+// //     // displayName: "Jane Q. User",
+// //     // photoURL: "https://example.com/jane-q-user/profile.jpg"
+// // })
 
-export const sendEmail = () => auth
-    .sendEmailVerification()
+// // //Metodo para enviar un mensaje de verificación al usuario 
+
+// // export const sendEmail = () => auth
+// //     .sendEmailVerification()

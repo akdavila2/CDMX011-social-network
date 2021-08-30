@@ -1,4 +1,5 @@
 import { onNavigate } from "../router/router.js"
+import { signOut } from "../firebase.js"
 
 export const Navbar = () => {
     const template =
@@ -16,19 +17,25 @@ export const Navbar = () => {
     </nav>
 `
     const navBar = document.createElement('header')
-    navBar.setAttribute("class", "header-div")
+    navBar.classList.add('header-div')
     navBar.innerHTML = template
-
-    const profile = navBar.querySelector('#profilePerfil');
     const logout = navBar.querySelector('#logout');
+    logout.addEventListener('click', async(event) => {
+        event.preventDefault();
+        try {
+            await signOut();
+            console.log('SAli ehhh');
+            onNavigate('/');
 
-    logout.addEventListener('click', (e) => {
-        e.preventDefault();
-        onNavigate('/');
+        } catch (error) {
+            alert(error)
+        }
+
     });
-
+    const profile = navBar.querySelector('#profilePerfil');
     profile.addEventListener('click', (e) => {
         e.preventDefault();
+
         onNavigate('/profile');
     });
 

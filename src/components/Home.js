@@ -2,23 +2,23 @@ import { Navbar } from "./Navbar.js"
 import { Publication } from "./Publication.js"
 
 export const Home = () => {
-        const viewContent = 
+    const viewContent =
         `
-            <p> EStos son los posts </p>
-            <p> EStos son los posts </p>
+            <p> Estos son los posts </p>
+            
         `
 
-        const home = document.createElement('div')
+    const home = document.createElement('div')
 
-        home.appendChild(Navbar())
+    home.appendChild(Navbar())
 
-        home.appendChild(Publication())
+    home.appendChild(Publication())
 
-        const content = document.createElement('div')
-        content.setAttribute("class", "profile-content")
-        content.innerHTML = viewContent
+    const content = document.createElement('div')
+    content.classList.add("class", "profile-content")
+    content.innerHTML = viewContent
+    home.appendChild(content)
 
-        home.appendChild(content)
 
-        return home
+    return home
 };

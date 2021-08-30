@@ -1,3 +1,4 @@
+import { login } from "../firebase.js";
 import { onNavigate } from "../router/router.js";
 
 export const Login = () => {
@@ -9,9 +10,10 @@ export const Login = () => {
             <div class="login-user">
                 <form action="" id="login-form" class="form">
                     <label for="login-email">Email</label>
-                    <input type="email" id="login-email" required>
+                    <input type="email" id="loginEmail" required>
                     <label for="login-password">Password</label>
-                    <input type="password" id="login-password" required>
+                    <input type="password" id="loginPassword" required>
+                    <p id="loginMessages"></p>
                     <button type="submit" id="btnLogin">Login</button>
                 </form>
             </div>
@@ -22,31 +24,47 @@ export const Login = () => {
             </div>
             <div class="login-google">
                 <img src="../img/icongoogle.png" alt="logo google" class="logo-google">
-                <p>Login with google</p>
+                <a id="withGoogle">Login with google</a>
             </div>
             <div class="pieform">
                 <p style="font-size: 12px;">You do not have an account</p>
-                <button id="signup">Sign Up</button>
+                <button type="submit" id="signup">Sign Up</button>
             </div>
-        </div>`
+        </div>`;
 
     const loginContainer = document.createElement('div')
-    loginContainer.setAttribute("class", "acount")
+    loginContainer.classList.add('acount')
 
     loginContainer.innerHTML = view;
 
     const btnLogin = loginContainer.querySelector('#btnLogin');
     const btnSignUp = loginContainer.querySelector('#signup');
+    const withGoogle = loginContainer.querySelector('#withGoogle');
 
-    btnLogin.addEventListener('click', (e) => {
-        e.preventDefault();
-        onNavigate('/home');
+    btnLogin.addEventListener('click', async(event) => {
+        event.preventDefault();
+
+        const email = loginContainer.querySelector('#loginEmail').value;
+        const password = loginContainer.querySelector('#loginPassword').value;
+        console.log(email, password);
+        try {
+
+            await login(email, password);
+            onNavigate('/home');
+        } catch (error) {
+            loginContainer.querySelector('#loginMessages').innerHTML = error.message;
+        }
     });
 
-    btnSignUp.addEventListener('click', (e) => {
-        e.preventDefault();
+    btnSignUp.addEventListener('click', event => {
+        event.preventDefault();
         onNavigate('/signUp');
     });
 
-    return loginContainer
+    withGoogle.addEventListener('click', event => {
+        event.preventDefault();
+
+    });
+
+    return loginContainer;
 };

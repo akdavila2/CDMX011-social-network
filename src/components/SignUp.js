@@ -38,8 +38,6 @@ export const SignUp = () => {
 
         console.log(email, password);
         if (password === signUpPassword2) {
-            console.log('si son iguales pasa');
-
             try {
                 await register(email, password);
                 console.log('exitoso')
@@ -48,6 +46,7 @@ export const SignUp = () => {
                 signupContainer.querySelector('#signupMesseges').innerHTML = '&#x02716'.concat(' ', error.message)
             }
         } else {
+            console.log('contraseñas no coinciden')
             signupMesseges.innerHTML = "&#x02716 Passwords do not match";
         }
     });

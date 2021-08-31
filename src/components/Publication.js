@@ -3,10 +3,12 @@ import { getUser } from "../firebase.js";
 export const Publication = () => {
     const user = getUser();
     const view = `
-    <h2> Hi ${user ? user.email : ''}</h2>
-        <textarea id="review" placeholder="Share your opinion"></textarea><br>
-        <a href="/profile" id="profilePerfil"><img class="icon-post" src="../img/plusazul.png">Add post</a>
-        `;
+    <div class="addPublication">
+        <p class= "getemail">${user ? user.email : ''}</p>
+        <img class= "photo-publication" src="../img/girl-919048_640.jpg">
+        <textarea class="text-publication" id="review" placeholder="Share your opinion"></textarea><br>
+        <a href="/profile" id="profilePerfil"><img class="icon-post" src="../img/plusazul.png"><p class="getemail">Add post</p></a>
+    </div> `;
 
 
     const publicationsDiv = document.createElement('div')

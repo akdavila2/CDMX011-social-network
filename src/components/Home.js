@@ -3,9 +3,9 @@ import { Publication } from "./Publication.js"
 
 export const Home = () => {
     const viewContent =
-        `
+        `<div class="container-post">
             <p> Estos son los posts </p>
-            
+        </div>    
         `
 
     const home = document.createElement('div')
@@ -15,7 +15,7 @@ export const Home = () => {
     home.appendChild(Publication())
 
     const content = document.createElement('div')
-    content.classList.add("class", "profile-content")
+    content.classList.add("profile-content")
     content.innerHTML = viewContent
     home.appendChild(content)
 

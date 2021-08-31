@@ -109,32 +109,51 @@ header {
 .post {
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    border-color: lightgrey;
     width: 100%;
-    height: 95px;
+    height: 200px;
+    padding: 5px;
+}
+
+.addPublication {
     background-color: #F3F1F5;
-    align-items: center;
+    border-color: lightgrey;
+    height: 117px;
+    padding: 10px;
+    width: 80%;
 }
 
-.icon-post {
-    width: 20px;
-    height: 20px;
-    justify-content: center;
-}
-
-textarea {
+.text-publication {
     background-color: white;
     border-radius: 10px;
     border-style: solid;
-    width: 350px;
+    width: 80%;
     outline: none;
+    color: #968C83;
+    padding: 10px;
 }
 
 ::placeholder {
-    color: #716F81;
+    color: #968C83;
     font-size: 12px;
     font-family: 'Open Sans';
+}
+
+.getemail {
+    font-size: 10px;
+    color: #968C83;
+    padding: 5px;
+}
+
+.photo-publication {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.icon-post {
+    width: 15px;
+    height: 15px;
+    justify-content: center;
 }
 
 
@@ -263,7 +282,7 @@ h3 {
 }
 
 .profile-content {
-    height: 100px;
+    margin-top: 100px;
 }
 
 .publication {

@@ -33,12 +33,12 @@ export const Navbar = () => {
         }
 
     });
-    const profile = navBar.querySelector('#profilePerfil');
-    profile.addEventListener('click', (e) => {
-        e.preventDefault();
+    // const profile = navBar.querySelector('#profilePerfil');
+    // profile.addEventListener('click', (e) => {
+    //     e.preventDefault();
 
-        onNavigate('/profile');
-    });
+    //     onNavigate('/profile');
+    // });
 
     return navBar
 }

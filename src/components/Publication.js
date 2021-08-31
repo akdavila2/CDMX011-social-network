@@ -4,7 +4,7 @@ export const Publication = () => {
     const user = getUser();
     const view = `
     <div class="addPublication">
-        <p class= "getemail">email: ${user ? user.email : ''}</p>
+        <p class= "getemail">e-mail: ${user ? user.email : ''}</p>
         <img class= "photo-publication" src="../img/addphoto.png">
         <textarea class="text-publication" id="review" placeholder="Share your opinion"></textarea>
         <div class="texticonspost">

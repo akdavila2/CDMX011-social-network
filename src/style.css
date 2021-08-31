@@ -75,8 +75,9 @@
     
     a:link {
         cursor: pointer;
-        color: #968C83;
+        color: #C8C6C6;
         text-decoration: none;
+        font-size: 12px;
     }
     
     a:visited {
@@ -102,8 +103,8 @@
     
     .post {
         display: flex;
-        width: 80%;
-        height: 300px;
+        width: 95%;
+        height: 310px;
         padding: 5px;
         margin: auto;
     }
@@ -122,7 +123,7 @@
         background-color: white;
         border-radius: 10px;
         border-style: solid;
-        width: 75%;
+        width: 80%;
         height: auto;
         outline: none;
         color: #968C83;
@@ -131,28 +132,15 @@
     
     .texticonspost {
         display: flex;
-        justify-content: flex-start;
         width: 90%;
-        margin: auto;
         color: #C8C6C6;
     }
     
-    .textaddpost a {
+    .textaddpost {
+        margin-left: 40px;
         color: #C8C6C6;
         cursor: pointer;
         font-size: 5px;
-    }
-    
-    .textaddpost a:hover {
-        color: #C8C6C6;
-    }
-    
-    .textaddpost a:link {
-        color: #C8C6C6;
-    }
-    
-    .textaddpost a:visited {
-        color: #C8C6C6;
     }
     
      ::placeholder {
@@ -329,6 +317,6 @@
     
     @media (min-width: 800px) {
         .text-publication {
-            width: 90%;
+            width: 95%;
         }
     }

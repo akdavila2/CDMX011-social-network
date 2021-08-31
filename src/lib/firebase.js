@@ -1,3 +1,5 @@
+import { onNavigate } from "../router/router.js";
+
 const firebaseConfig = {
 
     apiKey: "AIzaSyCr9r5Gh3K7FUuYboZgmcX8NOcQcUr-frM",
@@ -8,7 +10,6 @@ const firebaseConfig = {
     appId: "1:22805731102:web:e9efc5d4c0937476979b0f"
 
 };
-
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -34,14 +35,26 @@ export const signOut = () => auth.signOut();
 
 //Metodo que indica si el usuario tiene la sesión activa
 
-export const activeSession = () => auth
-    .onAuthStateChanged((user) => {
+export const activeSession = () => {
+    auth.onAuthStateChanged((user) => {
         if (user) {
-            console.log('Usuario logueado')
+            if (window.location.origin) {
+                onNavigate('/home');
+            } else {
+                window.location
+            }
         } else {
-            console.log('usuario logout')
+            onNavigate('/');
         }
-    });
+    })
+}
+
+
+//Metodo para loguearse con Google
+
+const provider = new firebase.auth.GoogleAuthProvider();
+export const loginGoogle = () => auth
+    .signInWithPopup(provider);
 
 // // //Método para actualizar informacion basica del perfil updateProfile
 

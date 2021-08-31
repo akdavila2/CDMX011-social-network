@@ -1,15 +1,16 @@
-import { getUser } from "../firebase.js";
+import { getUser } from "../lib/firebase.js";
 
 export const Publication = () => {
     const user = getUser();
     const view = `
     <div class="addPublication">
-        <p class= "getemail">${user ? user.email : ''}</p>
-        <img class= "photo-publication" src="../img/girl-919048_640.jpg">
-        <textarea class="text-publication" id="review" placeholder="Share your opinion"></textarea><br>
-        <a href="/profile" id="profilePerfil"><img class="icon-post" src="../img/plusazul.png"><p class="getemail">Add post</p></a>
+        <p class= "getemail">email: ${user ? user.email : ''}</p>
+        <img class= "photo-publication" src="../img/addphoto.png">
+        <textarea class="text-publication" id="review" placeholder="Share your opinion"></textarea>
+        <div class="texticonspost">
+        <a class="textaddpost" href="/home" id="profilePerfil"><img class="icon-post" src="../img/plusazul.png">Add post</a>       
+        </div>
     </div> `;
-
 
     const publicationsDiv = document.createElement('div')
     publicationsDiv.setAttribute("class", "post")

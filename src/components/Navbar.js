@@ -1,5 +1,5 @@
 import { onNavigate } from "../router/router.js"
-import { signOut } from "../firebase.js"
+import { signOut } from "../lib/firebase.js"
 
 export const Navbar = () => {
     const template =

@@ -1,5 +1,5 @@
 import { onNavigate } from "../router/router.js";
-import { register } from "../firebase.js";
+import { register } from "../lib/firebase.js";
 
 export const SignUp = () => {
     const view = `

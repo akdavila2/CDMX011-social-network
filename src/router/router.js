@@ -3,6 +3,7 @@ import { Login } from "../components/Login.js";
 import { Profile } from "../components/Profile.js";
 import { ProfileInfo } from "../components/ProfileInfo.js";
 import { SignUp } from "../components/SignUp.js";
+import { activeSession } from "../lib/firebase.js";
 
 
 export const routes = {
@@ -31,4 +32,5 @@ window.onpopstate = () => {
         rootDiv.removeChild(rootDiv.firstChild);
     }
     rootDiv.appendChild(routes[window.location.pathname]());
+    activeSession();
 };

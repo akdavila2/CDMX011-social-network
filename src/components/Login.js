@@ -1,4 +1,4 @@
-import { login } from "../firebase.js";
+import { login, loginGoogle } from "../lib/firebase.js";
 import { onNavigate } from "../router/router.js";
 export const Login = () => {
     const view = `
@@ -41,7 +41,7 @@ export const Login = () => {
         console.log(email, password);
         try {
             await login(email, password);
-            onNavigate('/home');
+            //onNavigate('/home');
         } catch (error) {
             loginContainer.querySelector('#loginMessages').innerHTML = '&#x02716'.concat(' ', error.message);
         }
@@ -54,13 +54,11 @@ export const Login = () => {
     withGoogle.addEventListener('click', async(event) => {
         event.preventDefault();
         try {
-            const provider = new firebase.auth.GoogleAuthProvider();
-            const user = await firebase.auth().signInWithPopup(provider);
+            await loginGoogle()
             console.log('logueado con google');
             onNavigate('/home')
         } catch (error) {
             loginContainer.querySelector('#loginMessages').innerHTML = '&#x02716'.concat(' ', error.message);
-
         }
     });
 

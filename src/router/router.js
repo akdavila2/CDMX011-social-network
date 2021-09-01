@@ -1,7 +1,7 @@
 import { Home } from "../components/Home.js";
 import { Login } from "../components/Login.js";
 import { Profile } from "../components/Profile.js";
-import { ProfileInfo } from "../components/ProfileInfo.js";
+import { Post } from "../components/Publications/Post.js";
 import { SignUp } from "../components/SignUp.js";
 import { activeSession } from "../lib/firebase.js";
 
@@ -11,7 +11,7 @@ export const routes = {
     '/signUp': SignUp,
     '/home': Home,
     '/profile': Profile,
-    '/profileInfo': ProfileInfo,
+    '/post': Post,
 };
 
 const rootDiv = document.getElementById('root')

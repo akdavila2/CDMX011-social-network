@@ -119,6 +119,11 @@
             border-radius: 10px;
         }
         
+        .container-addpost {
+            display: flex;
+            padding: 10px;
+        }
+        
         .text-publication {
             background-color: white;
             border-radius: 10px;
@@ -128,6 +133,9 @@
             outline: none;
             color: #968C83;
             padding: 5px;
+            border-color: #F9F9F9;
+            text-align: center;
+            align-items: center;
         }
         
         .texticonspost {
@@ -137,7 +145,6 @@
         }
         
         .textaddpost {
-            margin-left: 40px;
             color: #C8C6C6;
             cursor: pointer;
             font-size: 5px;

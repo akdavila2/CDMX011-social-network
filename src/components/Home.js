@@ -14,7 +14,7 @@ export const Home = () => {
 
 <div>
     <div class="poster">
-        <p class="getemail">e-mail: ${user ? user.email : ''}</p>
+        <p class="getemail"> ${user ? user.email : ''}</p>
         <p class="getemail">${dateToday}</p>
         <textarea class="text-poster" id="poster" placeholder="POST"></textarea>
     <div class="texticonspost">

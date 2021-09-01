@@ -32,8 +32,8 @@ en la que podamos **leer y escribir datos**.
 #### Flujo de la aplicación:
 <img  src= "src/img/diagramasegundaiteracion.png" ><br>
 #### Prototipo de baja fidelidad:
-<img  src= "src/img/prototype_1.jpeg" width= 700px height= 700px><br>
-<img  src= "src/img/prototype_2.jpeg" width= 700px height= 700px><br>
+
+<img  src= "src/img/prototypeBF.png">
 
 #### Prototipo de alta Fidelidad:
 <img  src= "src/img/prototypesmobileAF.png">

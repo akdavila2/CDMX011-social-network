@@ -36,5 +36,5 @@ en la que podamos **leer y escribir datos**.
 <img  src= "src/img/prototype_2.jpeg" width= 700px height= 700px><br>
 
 #### Prototipo de alta Fidelidad:
-<img  src= "src/img/Prototypescreen1y2.png"><br>
-<img  src= "src/img/prototypesinperfil2y3.png"><br>
+<img  src= "src/img/prototypesmobileAF.png">
+

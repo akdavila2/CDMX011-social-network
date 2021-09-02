@@ -8,7 +8,7 @@ export const Post = () => {
         <label for="Username">Title of the book</label>
         <input class = "inputpost" type="text" id="Title">
         <label for="rating">Rating</label>
-        <input class = "inputpost" type="number" id="rating" max=1 0>
+        <input class = "inputpost" type="number" id="rating" min= 1 max=10>
         <label for="review">Review</label>
         <textarea class = "inputpost" type="text" id="Review"></textarea>
 

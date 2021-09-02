@@ -8,8 +8,8 @@ export const Post = () => {
             <label for="reviewTitle">Book title</label>
             <input type="text" id="reviewTitle" required>
             <label for="reviewRate">Rating</label>
-            <input type="text" id="reviewRate" required>
-            <label for="review">Username</label>
+            <input type="number" id="reviewRate" required>
+            <label for="review">Review</label>
             <input type="text" id="review" required>
             <button class"btnPoster" id="btnAddPost" type="submit">Add Post</button>
         </form>
@@ -19,7 +19,6 @@ export const Post = () => {
     const addPost = document.createElement('div')
 
     addPost.appendChild(Navbar())
-
 
     const postForm = document.createElement('div')
     postForm.classList.add('containerposter')
@@ -32,6 +31,7 @@ export const Post = () => {
     btnAddPost.addEventListener('click', (e) => {
         e.preventDefault()
         //mandar los datos del form a firestore
+        onNavigate('/home')
     });
 
 

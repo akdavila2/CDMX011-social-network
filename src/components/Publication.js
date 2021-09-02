@@ -9,7 +9,7 @@ export const Publication = () => {
         <img class= "photo-publication" src="../img/addphoto.png">
         <textarea class="text-publication" id="review" placeholder="Share your opinion"></textarea>
         <div class="texticonspost">
-        <a class="textaddpost" href="#" id="btnAddPost"><img class="icon-post" src="../img/plusazul.png">Add post</a>       
+            <a class="textaddpost" href="#" id="btnAddPost"><img class="icon-post" src="../img/plusazul.png">Add post</a>       
         </div>
     </div> `;
 

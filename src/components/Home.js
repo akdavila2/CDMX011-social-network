@@ -18,7 +18,7 @@ export const Home = () => {
         <p class="getemail">${dateToday}</p>
         <textarea class="text-poster" id="poster" placeholder="POST"></textarea>
     <div class="texticonspost">
-        <img class="icon-post" src="../img/corazon vacio.png">
+        <i class="icon-like" src="../img/heart-solid.svg"></i>
         <img class="icon-post" src="../img/icons8-borrar-para-siempre-50.png">
         <img class="icon-post" src="../img/icons8-editar-50.png">
     </div>

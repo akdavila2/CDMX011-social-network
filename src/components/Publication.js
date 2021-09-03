@@ -11,7 +11,7 @@ export const Publication = () => {
         <img class= "photo-publication" src="../img/addphoto.png">
     </div>
     <div class= "text-publication">
-        <a class="textaddpost" href="../components/Publications/Post.js" id="addpublications"><img class="icon-post" src="../img/plusazul.png"> Add Post</a>
+        <a class="textaddpost" href="/postForm" id="addpublications"><img class="icon-post" src="../img/plusazul.png"> Add Post</a>
     </div>
     </div> 
     </div>`;
@@ -23,11 +23,11 @@ export const Publication = () => {
     const btnAddPost = publicationsDiv.querySelector('#addpublications');
     btnAddPost.addEventListener('click', event => {
         event.preventDefault();
-        onNavigate('/post');
+        onNavigate('/postForm');
     });
 
     //en el botón de enviar poner la lógica para mandar el post a firebase y también para que aparezca ya sea en home o perfil, intentar usar un parámetro para indicar si está en home o perfil para usar la misma lógica del componente
 
-    return publicationsDiv
+    return publicationsDiv;
 
 };

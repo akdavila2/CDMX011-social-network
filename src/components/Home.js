@@ -1,42 +1,17 @@
 import { Navbar } from "./Navbar.js"
 import { Publication } from "./Publication.js"
-import { getUser } from "../lib/firebase.js";
+import { RendPosts } from '../components/Publications/RendPosts.js'
+
 
 export const Home = () => {
-    const user = getUser();
-    const date = new Date();
-    const dateToday = date.toDateString();
 
-    const viewContent =
-        `<div class="container-post">
-            <h3>Last post</h3>
-        </div>   
+    const home = document.createElement('div');
 
-<div>
-    <div class="poster">
-        <p class="getemail"> ${user ? user.email : ''}</p>
-        <p class="getemail">${dateToday}</p>
-        <textarea class="text-poster" id="poster" placeholder="POST"></textarea>
-    <div class="texticonspost">
-        <i class="icon-like" src="../img/heart-solid.svg"></i>
-        <img class="icon-post" src="../img/icons8-borrar-para-siempre-50.png">
-        <img class="icon-post" src="../img/icons8-editar-50.png">
-    </div>
-</div>
+    home.appendChild(Navbar());
 
-        `
+    home.appendChild(Publication());
 
-    const home = document.createElement('div')
+    home.appendChild(RendPosts());
 
-    home.appendChild(Navbar())
-
-    home.appendChild(Publication())
-
-    const content = document.createElement('div')
-    content.classList.add("profile-content")
-    content.innerHTML = viewContent
-    home.appendChild(content)
-
-
-    return home
+    return home;
 };

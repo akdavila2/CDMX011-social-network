@@ -16,7 +16,7 @@ firebase.initializeApp(firebaseConfig);
 //Colocando el metodo de firebase en una constante.
 const auth = firebase.auth();
 // Initialize Firestore
-const fireSt = firebase.firestore();
+const db = firebase.firestore();
 
 //Metodo que me permite autenticar al  usuario con usuario y contraseña
 export const register = (email, password) => auth
@@ -56,14 +56,19 @@ const provider = new firebase.auth.GoogleAuthProvider();
 export const loginGoogle = () => auth
     .signInWithPopup(provider);
 
-// // //Método para actualizar informacion basica del perfil updateProfile
+//Funcion para guardar post en mi coleccion de post
 
-// // getUser.updateProfile({
-// //     // displayName: "Jane Q. User",
-// //     // photoURL: "https://example.com/jane-q-user/profile.jpg"
-// // })
+export const savePost = (title, rating, review) =>
+    db.collection('post').doc().set({
+        title,
+        rating,
+        review
+    });
 
-// // //Metodo para enviar un mensaje de verificación al usuario 
+//Función para obtener mis post de la base de datos firestore
 
-// // export const sendEmail = () => auth
-// //     .sendEmailVerification()
+export const getPost = () => db.collection('posts').get();
+
+//Funcion para que se actualicen los post 
+
+export const onGetPost = () => db.collection('posts').onSnapshot(callback);

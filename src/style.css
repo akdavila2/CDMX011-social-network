@@ -17,9 +17,10 @@
         /* =============================Container=================================================== */
         
         .container-1 {
-            width: 100%;
+            width: 90%;
             height: 95vh;
             margin-top: 0px;
+            margin: auto;
         }
         
         .acount {
@@ -46,8 +47,9 @@
         }
         
         .logo-nav {
-            width: 350px;
+            width: 300px;
             height: 60px;
+            padding: 5px;
         }
         
         .icon-nav {
@@ -353,37 +355,63 @@
 
         /* ============================================= rendPost ============================================== */
         .container-posts{
-            height: fit-content;
+            height: 200px;
             width: 100%;
-            background-color: pink;
+            display: flex;
+            /*flex-wrap: wrap;*/
         }
         .profile-content {
-            display: flex;
-            flex-direction: column;
-            margin-top: 50px;
-        }
-        .user-data {
+            width: 85%;
+            /*width: 300px*/
+            height: 150px;            
             background-color: #F3F1F5;
-            border-color: lightgrey;
-            height: 110px;
-            padding: 10px;
-            width: 92%;
             margin: auto;
-            border-radius: 10px;
-            font-size: 8px;
         }
-        .container-review{
+        
+        .user-data {
             display: flex;
+            background-color: #F3F1F5;;
+            /*border-color: lightgrey;*/
+            width: 100%;
+            height: auto;                      
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+        }
+        .container-review{ 
+            width: 90%;
+            height: 100px;
+            background-color: white;
+            margin: auto;            
         }
 
         .title-rating{
+            width: 100%;
+            height: 25%;
+            background-color: white;
             display: flex;
             flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            padding: 5px;
+        }
+        .review-text{
+            width: 100%;
+            height: 75%;
+            background-color: white;
+            flex-direction: row;    
+            font-size: 14px;        
+            padding: 5px;
         }
         .texticonspost {
             display: flex;
-            width: 90%;
+            width: 100%;
+            height: auto;
+            background-color: #F3F1F5;
             color: #C8C6C6;
+            margin: auto;
         }
 
         .icon-like {

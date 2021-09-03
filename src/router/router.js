@@ -1,6 +1,6 @@
 import { Home } from "../components/Home.js";
 import { Login } from "../components/Login.js";
-import { Post } from "../components/Publications/Post.js";
+import { Post } from "../components/Post/PostForm.js";
 import { SignUp } from "../components/SignUp.js";
 import { activeSession } from "../lib/firebase.js";
 

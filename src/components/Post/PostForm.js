@@ -1,5 +1,6 @@
 import { onNavigate } from "../../router/router.js"
 import { Navbar } from "../Navbar.js"
+
 export const Post = () => {
     const viewInfo = `
 <div id="addPublication">

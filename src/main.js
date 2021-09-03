@@ -1,5 +1,9 @@
-// Este es el punto de entrada de tu aplicacion
+import { routes } from './router/router.js'
+import { activeSession } from './lib/firebase.js';
 
-import { myFunction } from './lib/index.js';
 
-myFunction();
+const component = routes[window.location.pathname]
+
+document.getElementById('root').appendChild(component());
+
+activeSession();

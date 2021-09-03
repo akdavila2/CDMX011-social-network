@@ -138,12 +138,6 @@
             box-shadow: 7px 7px 8px 0px rgba(50, 50, 50, 0.37);
         }
         
-        .texticonspost {
-            display: flex;
-            width: 90%;
-            color: #C8C6C6;
-        }
-        
         .textaddpost {
             color: #C8C6C6;
             cursor: pointer;
@@ -172,16 +166,7 @@
             align-items: center;
         }
         
-        .icon-post {
-            width: 15px;
-            height: 15px;
-        }
-        
-        .icon-like {
-            color: tomato;
-            width: 8px;
-            height: 8px;
-        }
+
         /* ===================================================Login SignUp=========================================================== */
         
         .form {
@@ -279,42 +264,42 @@
             gap: 5px;
         }
         /*===============================================================post-form==============================*/
-        
+        .containerpost {
+            width: 100%;
+            height: auto;
+            margin-top: 80px;
+            display: flex;
+        }
         #addPublication {
             background-color: #F3F1F5;
             border-color: lightgrey;
-            height: fit-content;
-            width: 100%;
+            height: auto; 
+            width: 90%;
             margin: auto;
             border-radius: 10px;
+            padding: 20px;
         }
-        
         .form-Background {
             background-color: white;
-            padding: 20px 40px 40px;
-            margin: 20px 20px 20px 20px;
-            height: 50%;
-        }
-        
-        .containerpost {
+            box-shadow: 11px 11px 8px 0px rgba(50, 50, 50, 0.42);
+            border-radius: 20px;
             width: 80%;
+            height: fit-content;
+            padding: 10px;            
             margin: auto;
-            margin-top: 80px;
         }
-        
         .btnPost {
-            background-color: #F9F9F9;
+            background-color: #EBE8E1;
             color: #AAAAAA;
             box-shadow: 11px 11px 8px 0px rgba(50, 50, 50, 0.42);
             width: 90%;
             margin: auto;
-            margin-top: 20px;
+            margin-top: 18px;
+            margin-bottom: 10px;
         }
-        
         textarea {
             height: 80px;
         }
-        
         .inputpost {
             border-left: 0px;
             border-top: 0px;
@@ -365,18 +350,19 @@
         .post {
             height: 100px;
         }
-        /*==================================================================home=========================================================*/
-        
-        h3 {
-            text-align: center;
-            margin-bottom: 30px;
+
+        /* ============================================= rendPost ============================================== */
+        .container-posts{
+            height: fit-content;
+            width: 100%;
+            background-color: pink;
         }
-        
         .profile-content {
+            display: flex;
+            flex-direction: column;
             margin-top: 50px;
         }
-        
-        .poster {
+        .user-data {
             background-color: #F3F1F5;
             border-color: lightgrey;
             height: 110px;
@@ -386,17 +372,31 @@
             border-radius: 10px;
             font-size: 8px;
         }
-        
-        .text-poster {
-            background-color: white;
-            border-radius: 10px;
-            border-style: solid;
-            width: 100%;
-            height: auto;
-            outline: none;
-            color: #968C83;
-            padding: 5px;
+        .container-review{
+            display: flex;
         }
+
+        .title-rating{
+            display: flex;
+            flex-direction: row;
+        }
+        .texticonspost {
+            display: flex;
+            width: 90%;
+            color: #C8C6C6;
+        }
+
+        .icon-like {
+            color: tomato;
+            width: 8px;
+            height: 8px;
+        }
+
+        .icon-post {
+            width: 15px;
+            height: 15px;
+        }
+
         /* ==========================================Footer================================================= */
         
         footer {

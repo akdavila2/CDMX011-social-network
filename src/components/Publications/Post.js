@@ -4,17 +4,15 @@ export const Post = () => {
     const viewInfo = `
 <div id="addPublication">
     <div class= "form-Background">
-    <form action="" id="publicationsForm" class="form">
-        <label for="Username">Title of the book</label>
-        <input class = "inputpost" type="text" id="Title">
-        <label for="rating">Rating</label>
-        <input class = "inputpost" type="number" id="rating" min= 1 max=10>
-        <label for="review">Review</label>
-        <textarea class = "inputpost" type="text" id="Review"></textarea>
-
-        <button class="btnPost" id="btnAddPoster" type="submit"><img class="icon-post" src="../img/plusazul.png">Add Post</button>
-
-    </form>
+        <form action="" id="publicationsForm" class="form">
+            <label for="Username">Title of the book</label>
+            <input class = "inputpost" type="text" id="Title">
+            <label for="rating">Rating</label>
+            <input class = "inputpost" type="number" id="rating" min= 1 max=10>
+            <label for="review">Review</label>
+            <textarea class = "inputpost" type="text" id="Review"></textarea>
+            <button class="btnPost" id="btnAddPoster" type="submit"><img class="icon-post" src="../img/plusazul.png">Add Post</button>
+        </form>
     </div>
 </div>
 `

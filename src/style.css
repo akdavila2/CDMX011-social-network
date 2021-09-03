@@ -119,6 +119,11 @@
             border-radius: 10px;
         }
         
+        .container-addpost {
+            display: flex;
+            padding: 10px;
+        }
+        
         .text-publication {
             background-color: white;
             border-radius: 10px;
@@ -128,19 +133,18 @@
             outline: none;
             color: #968C83;
             padding: 5px;
-        }
-        
-        .texticonspost {
-            display: flex;
-            width: 90%;
-            color: #C8C6C6;
+            border-color: #F9F9F9;
+            margin: auto;
+            box-shadow: 7px 7px 8px 0px rgba(50, 50, 50, 0.37);
         }
         
         .textaddpost {
-            margin-left: 40px;
             color: #C8C6C6;
             cursor: pointer;
             font-size: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
          ::placeholder {
@@ -162,10 +166,7 @@
             align-items: center;
         }
         
-        .icon-post {
-            width: 15px;
-            height: 15px;
-        }
+
         /* ===================================================Login SignUp=========================================================== */
         
         .form {
@@ -262,6 +263,56 @@
             width: 100%;
             gap: 5px;
         }
+        /*===============================================================post-form==============================*/
+        .containerpost {
+            width: 100%;
+            height: auto;
+            margin-top: 80px;
+            display: flex;
+        }
+        #addPublication {
+            background-color: #F3F1F5;
+            border-color: lightgrey;
+            height: auto; 
+            width: 90%;
+            margin: auto;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .form-Background {
+            background-color: white;
+            box-shadow: 11px 11px 8px 0px rgba(50, 50, 50, 0.42);
+            border-radius: 20px;
+            width: 80%;
+            height: fit-content;
+            padding: 10px;            
+            margin: auto;
+        }
+        .btnPost {
+            background-color: #EBE8E1;
+            color: #AAAAAA;
+            box-shadow: 11px 11px 8px 0px rgba(50, 50, 50, 0.42);
+            width: 90%;
+            margin: auto;
+            margin-top: 18px;
+            margin-bottom: 10px;
+        }
+        textarea {
+            height: 80px;
+        }
+        .inputpost {
+            border-left: 0px;
+            border-top: 0px;
+            border-right: 0px;
+            border-bottom: 2px solid #D6D2C4;
+            font-size: 16px;
+            margin-bottom: 5px;
+            outline: none;
+            height: 40px;
+            background-color: white;
+            color: #5B5B5B;
+            width: 100%;
+        }
         /* ===========================================Profile==================================================================== */
         
         .home {
@@ -299,18 +350,19 @@
         .post {
             height: 100px;
         }
-        /*==================================================================home=========================================================*/
-        
-        h3 {
-            text-align: center;
-            margin-bottom: 30px;
+
+        /* ============================================= rendPost ============================================== */
+        .container-posts{
+            height: fit-content;
+            width: 100%;
+            background-color: pink;
         }
-        
         .profile-content {
+            display: flex;
+            flex-direction: column;
             margin-top: 50px;
         }
-        
-        .poster {
+        .user-data {
             background-color: #F3F1F5;
             border-color: lightgrey;
             height: 110px;
@@ -320,17 +372,31 @@
             border-radius: 10px;
             font-size: 8px;
         }
-        
-        .text-poster {
-            background-color: white;
-            border-radius: 10px;
-            border-style: solid;
-            width: 100%;
-            height: auto;
-            outline: none;
-            color: #968C83;
-            padding: 5px;
+        .container-review{
+            display: flex;
         }
+
+        .title-rating{
+            display: flex;
+            flex-direction: row;
+        }
+        .texticonspost {
+            display: flex;
+            width: 90%;
+            color: #C8C6C6;
+        }
+
+        .icon-like {
+            color: tomato;
+            width: 8px;
+            height: 8px;
+        }
+
+        .icon-post {
+            width: 15px;
+            height: 15px;
+        }
+
         /* ==========================================Footer================================================= */
         
         footer {

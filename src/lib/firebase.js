@@ -56,14 +56,3 @@ const provider = new firebase.auth.GoogleAuthProvider();
 export const loginGoogle = () => auth
     .signInWithPopup(provider);
 
-// // //Método para actualizar informacion basica del perfil updateProfile
-
-// // getUser.updateProfile({
-// //     // displayName: "Jane Q. User",
-// //     // photoURL: "https://example.com/jane-q-user/profile.jpg"
-// // })
-
-// // //Metodo para enviar un mensaje de verificación al usuario 
-
-// // export const sendEmail = () => auth
-// //     .sendEmailVerification()

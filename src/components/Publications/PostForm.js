@@ -15,22 +15,22 @@ export const PostForm = () => {
         <textarea class = "inputpost" type="text" id="review"></textarea>
         <div class="error-message" id="postMesseges"></div>
         <div class= "text-publication">
-             <a class="textaddpost" href="/home" id="btnAddPoster"><img class="icon-post" src="../img/plusazul.png"> Add Post</a>
+             <a class="textaddpost" href="/home" id="btnAddPoster"><img class="icon-posts" src="../img/plusazul.png"> Add posts</a>
         </div>
       
     </form>
     </div>
 </div>
 `
-    const post = document.createElement('div');
-    post.appendChild(Navbar());
+    const posts = document.createElement('div');
+    posts.appendChild(Navbar());
     const contentPost = document.createElement('div');
     contentPost.classList.add('containerpost');
     contentPost.innerHTML = viewInfo;
-    post.appendChild(contentPost);
+    posts.appendChild(contentPost);
     const btnAddPost = contentPost.querySelector('#btnAddPoster');
     const db = firebase.firestore();
-    btnAddPost.addEventListener('submit', async(event) => {
+    btnAddPost.addEventListener('click', async(event) => {
         event.preventDefault();
 
         const title = contentPost.querySelector('#title').value;
@@ -42,8 +42,6 @@ export const PostForm = () => {
         } catch (error) {
             signupContainer.querySelector('#postMesseges').innerHTML = '&#x02716'.concat(' ', error.message)
         }
-
-
     });
-    return post;
+    return posts;
 }

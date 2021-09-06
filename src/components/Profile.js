@@ -20,7 +20,7 @@ export const Profile = () => {
     profileDiv.appendChild(Navbar())
 
     const namePhoto = document.createElement('div')
-    namePhoto.setAttribute("class", "name-photo")
+    namePhoto.classList.add("name-photo")
     namePhoto.innerHTML = profileNamePhoto
     profileDiv.appendChild(namePhoto)
 
@@ -28,7 +28,7 @@ export const Profile = () => {
 
 
     const content = document.createElement('div')
-    content.setAttribute("class", "profile-content")
+    content.classList.add("profile-content")
     content.innerHTML = viewContent
 
     profileDiv.appendChild(content)

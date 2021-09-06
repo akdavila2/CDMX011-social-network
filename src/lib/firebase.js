@@ -71,4 +71,8 @@ export const getPost = () => db.collection('posts').get();
 
 //Funcion para que se actualicen los post 
 
-export const onGetPost = () => db.collection('posts').onSnapshot(callback);
+export const onGetPost = (callback) => db.collection('posts').onSnapshot(callback);
+
+export const deletePosts = (id) => db.collection('posts').doc(id).delete();
+
+export const editPosts = (id, updatedPosts) => db.collection('posts').doc(id).update(updatedPosts);

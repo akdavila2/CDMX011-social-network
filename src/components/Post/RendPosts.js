@@ -18,14 +18,13 @@ export const RendPosts = () => {
             content.innerHTML += 
                 `<div class="review-container">
                 <div class="user-data">
-                    <p class="getemail">${user? user.email : ''}</p>
+                    <p class="getemail">${post.user}</p>
                     <p class="getemail">${post.date}</p>
                 </div>
                 <div class="container-review">
                     <div class="title-rating">
                         <p>${post.title}</p>
                         <p>${post.rating}</p>
-                        <p>${post.user}</p>
                     </div>
                     <div class="review-text">
                         <p>${post.review}</p>

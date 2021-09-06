@@ -67,3 +67,33 @@ export const loginGoogle = () => auth
 
 // // export const sendEmail = () => auth
 // //     .sendEmailVerification()
+
+
+//Firestore
+
+
+
+//set collection 
+export const savePosts = (title, rating, review, user, date) =>
+    fireSt.collection('posts').doc().set({
+        title: title,
+        rating: rating,
+        review: review,
+        user: user,
+        date: date
+    });
+
+//Get the post as they are entered
+
+export const onGetPosts = (callback) => 
+    fireSt.collection('posts').onSnapshot(callback)
+
+//Delete task
+
+export const deletePost = (id) =>
+    fireSt.collection('posts').doc(id).delete()
+
+//Get task
+
+export const getPost = (id) =>
+    fireSt.collection('posts').doc(id).get()

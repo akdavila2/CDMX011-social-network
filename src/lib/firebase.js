@@ -97,3 +97,7 @@ export const deletePost = (id) =>
 
 export const getPost = (id) =>
     fireSt.collection('posts').doc(id).get()
+
+//Update post
+export const updatePost = (id, updatedTask) =>
+    fireSt.collection('posts').doc(id).update(updatedTask)

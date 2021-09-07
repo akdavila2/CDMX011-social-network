@@ -44,39 +44,14 @@ export const RendPosts = () => {
                 </div>
                 `
             
-                const deleteEdit = document.querySelector(`.user-buttons-${post.id}`)
+            const deleteEdit = document.querySelector(`.user-buttons-${post.id}`)
 
-                if (post.user === getUser().email){
-                    console.log(deleteEdit)
-                } else {
-                    deleteEdit.style.display = "none"
-                }
-            {/* <div class="texticonspost">
-<i class="icon-like" src="../img/heart-solid.svg"></i>
-<div class="delete-edit-${post.id}">
-
-</div>
-</div>
-</div>
-`
-
-const deleteEdit = document.querySelector(`.delete-edit-${post.id}`)
-
-// insertar en ese html el resultado de la validacion 
-if (post.user === getUser().email){
-console.log(deleteEdit)
-console.log('AQuiiiiiiiiiii')
-const algo = document.createElement('button')
-algo.innerText= 'Borra algo '
-if(deleteEdit){
-deleteEdit.appendChild(algo)
-}
-
-
-
-}  */}
-
-            
+            if (post.user === getUser().email){
+                console.log(deleteEdit)
+            } else {
+                deleteEdit.style.display = "none"
+            }
+   
             const btnDelete = document.querySelectorAll('.btn-delete')
             btnDelete.forEach((btn)=> {
                 btn.addEventListener('click', async (e) => {

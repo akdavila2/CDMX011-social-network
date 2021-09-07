@@ -58,11 +58,13 @@ export const loginGoogle = () => auth
 
 //Funcion para guardar post en mi coleccion de posts
 
-export const savePost = (title, rating, review) =>
+export const savePost = (title, rating, review, user, date) =>
     db.collection('posts').doc().set({
         title,
         rating,
-        review
+        review,
+        user,
+        date
     });
 
 //Función para obtener mis posts de la base de datos firestore

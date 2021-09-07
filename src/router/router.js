@@ -10,7 +10,6 @@ export const routes = {
     '/': Login,
     '/signUp': SignUp,
     '/home': Home,
-    '/profile': Profile,
     '/postForm': PostForm,
 };
 

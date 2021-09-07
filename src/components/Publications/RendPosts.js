@@ -1,80 +1,76 @@
-import { getUser } from "../../lib/firebase.js";
-//import { getPost } from "../../lib/firebase.js";
-import { onGetPost } from "../../lib/firebase.js";
-import { deletePosts } from "../../lib/firebase.js";
+import { onGetPost, deletePosts, getPost } from "../../lib/firebase.js";
+import { onNavigate } from "../../router/router.js";
+import { PostForm } from "./PostForm.js";
+
+export let editStatus = false;
+export let editPost;
+export let idPostEdit;
 
 export const RendPosts = () => {
+    editStatus = false;
+    idPostEdit = '';
+    editPost = '';
+
     const posts = document.createElement('div');
     posts.classList.add("container-posts");
-    const content = document.createElement('div');
-    content.innerHTML = '';
-    content.classList.add("profile-content");
-    const user = getUser();
-    const date = new Date();
-    const dateToday = date.toDateString();
-    window.addEventListener('DOMContentLoaded', async(event) => {
-        console.log('Estoy en post de home');
-        onGetPost((querySnapshot) => {
 
-            querySnapshot.forEach(doc => {
-                const dataPost = doc.data();
-                //console.log(dataPost)
-                const viewContent =
-                    `<div class="user-data">
-                                <p class="getemail"> ${user ? user.email : ''}</p>
-                                <p class="getemail">${dateToday}</p>
-                            </div>
-                            <div class="container-review">
-                                <div class="title-rating">
-                                    <p id= "titlePost">Title: ${dataPost.title} </p>
-                                    <p id="ratingPost">Rating: ${dataPost.rating}</p>
-                                </div>
-                                <div id="reviewPost" class="review-text">
-                                    <p>${dataPost.review}</p>
-                                </div>
-                            </div>
-                            <div class="texticonspost">
-                                <i class="icon-like" src="../img/heart-solid.svg"></i>
-                                <div class="delete-edit">
-                                <a href="#" data-id="${doc.id}"><img class="icon-post icon-delete" src="../img/icons8-borrar-para-siempre-50.png"></a>
-                                <a href="#" data-id="${doc.id}"><img class="icon-post icon-edit" src="../img/icons8-editar-50.png"></a>;
-                                </div>
-                            </div>
-                            <div class="error-message" id="postsMessages"></div>
-                        `;
-
-                const iconDelete = content.querySelectorAll('.icon-delete');
-                iconDelete.forEach(icon => {
-                    icon.addEventListener('click', async(e) => {
-                        console.log('e.target.dataset.id');
-                        try {
-                            await deletePosts(e.target.dataset.id);
-                        } catch (error) {
-                            console.log(error);
-                        }
-                    })
-                });
-                console.log(viewContent);
-                content.innerHTML += viewContent;
+    console.log('Estoy en post de home');
+    onGetPost((querySnapshot) => {
+        posts.innerHTML = '';
+        querySnapshot.forEach(doc => {
+            const post = doc.data();
+            post.id = doc.id;
+            posts.innerHTML += `
+                <div class="review-container">
+                    <div class="user-data">
+                        <p class="getemail"> ${post.user}</p>
+                        <p class="getemail">${post.date}</p>
+                    </div>
+                    <div class="container-review">
+                        <div class="title-rating">
+                            <p id="titlePost">Title: ${post.title} </p>
+                            <p id="ratingPost">Rating: ${post.rating}/10</p>
+                        </div>
+                        <div id="reviewPost" class="review-text">
+                            <textare readonly>${post.review}</textare>
+                        </div>
+                    </div>
+                    <div class="texticonspost">
+                    <div class= "iconDIV-like">
+                        <img class="icon-like" src="../img/like.svg"></img>
+                    </div>    
+                        <div class="delete-edit">
+                            <a href="#"><img data-id="${post.id}" class="icon-post icon-delete" src="../img/icons8-borrar-para-siempre-50.png"></a>
+                            <a href="#"><img data-id="${post.id}" class="icon-post icon-edit" src="../img/icons8-editar-50.png"></a>
+                        </div>
+                    </div>
+                    <!--<div class="error-message" id="postsMessages"></div>-->
+                </div>
+                `;
+            const iconDelete = document.querySelectorAll('.icon-delete');
+            iconDelete.forEach(icon => {
+                icon.addEventListener('click', async(e) => {
+                    console.log('e.target.dataset.id');
+                    try {
+                        await deletePosts(e.target.dataset.id);
+                    } catch (error) { console.log(error); }
+                })
             });
+
+            const iconEdit = document.querySelectorAll('.icon-edit');
+            iconEdit.forEach(icon => {
+                icon.addEventListener('click', async(e) => {
+                    const doc = await getPost(e.target.dataset.id);
+                    editPost = doc.data();
+                    editStatus = true;
+                    idPostEdit = doc.id;
+                    console.log(editPost);
+                    onNavigate('/postForm');
+
+                })
+            })
         });
     });
-    posts.appendChild(content);
+
     return posts;
 }
-
-
-
-
-
-
-//                 const iconEdit = content.querySelectorAll('icon-edit');
-//                 iconEdit.forEach((icon) => {
-//                     icon.addEventListener('click', async(e) => {
-//                         try {
-//                             const doc = await getPost(e.target.dataset.id);
-//                             const dataPost = doc.data();
-// const title=
-//                         }
-//                     })
-//                 })

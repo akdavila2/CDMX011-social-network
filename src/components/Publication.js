@@ -11,7 +11,7 @@ export const Publication = () => {
         <img class= "photo-publication" src="../img/addphoto.png">
     </div>
     <div class= "text-publication">
-        <a class="textaddpost" href="/postForm" id="addpublications"><img class="icon-post" src="../img/plusazul.png"> Add Post</a>
+        <a class="textaddpost" href="/postForm" id="addpublications"><img class="icon-plus" src="../img/plusazul.png"> Add Post</a>
     </div>
     </div> 
     </div>`;

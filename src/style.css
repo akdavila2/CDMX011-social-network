@@ -456,12 +456,14 @@
             width: 30px;
             height: 30px;
             margin-right: 5px;
+            cursor: pointer;
         }
         
         .icon-plus {
             width: 15px;
             height: 15px;
             margin-right: 5px;
+            cursor: pointer;
         }
         
         .icon-like {
@@ -471,6 +473,7 @@
             margin-left: 8px;
             border-color: darkred;
             margin-bottom: 4px;
+            cursor: pointer;
         }
         /* ==========================================Footer================================================= */
         

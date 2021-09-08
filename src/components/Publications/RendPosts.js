@@ -1,6 +1,5 @@
-import { onGetPost, deletePosts, getPost } from "../../lib/firebase.js";
+import { onGetPost, deletePosts, getPost, getUser } from "../../lib/firebase.js";
 import { onNavigate } from "../../router/router.js";
-import { PostForm } from "./PostForm.js";
 
 export let editStatus = false;
 export let editPost;
@@ -11,6 +10,7 @@ export const RendPosts = () => {
     idPostEdit = '';
     editPost = '';
 
+    const user = getUser();
     const posts = document.createElement('div');
     posts.classList.add("container-posts");
 
@@ -39,36 +39,48 @@ export const RendPosts = () => {
                     <div class= "iconDIV-like">
                         <img class="icon-like" src="../img/like.svg"></img>
                     </div>    
-                        <div class="delete-edit">
-                            <a href="#"><img data-id="${post.id}" class="icon-post icon-delete" src="../img/icons8-borrar-para-siempre-50.png"></a>
-                            <a href="#"><img data-id="${post.id}" class="icon-post icon-edit" src="../img/icons8-editar-50.png"></a>
+                        <div class="delete-edit" id="user-buttons-${post.id}">
+                        <img data-id="${post.id}" class="icon-post icon-delete" src="../img/icons8-borrar-para-siempre-50.png">
+                        <img data-id="${post.id}" class="icon-post icon-edit" src="../img/icons8-editar-50.png">
                         </div>
                     </div>
                     <!--<div class="error-message" id="postsMessages"></div>-->
                 </div>
                 `;
+
+            const deleteEdit = document.querySelector(`#user-buttons-${post.id}`)
+            if (post.user === getUser().email) {
+                console.log(deleteEdit)
+            } else {
+                deleteEdit.style.display = "none"
+            }
             const iconDelete = document.querySelectorAll('.icon-delete');
-            iconDelete.forEach(icon => {
-                icon.addEventListener('click', async(e) => {
-                    console.log('e.target.dataset.id');
+            iconDelete.forEach((icon) => {
+                icon.addEventListener('click', async(event) => {
+                    event.preventDefault();
                     try {
-                        await deletePosts(e.target.dataset.id);
-                    } catch (error) { console.log(error); }
+                        await deletePosts(event.target.dataset.id);
+                    } catch (error) {
+                        console.log(error);
+                    }
                 })
             });
 
             const iconEdit = document.querySelectorAll('.icon-edit');
-            iconEdit.forEach(icon => {
-                icon.addEventListener('click', async(e) => {
-                    const doc = await getPost(e.target.dataset.id);
+            iconEdit.forEach((icon) => {
+                icon.addEventListener('click', async(event) => {
+                    event.preventDefault()
+                    const doci = await getPost(event.target.dataset.id);
+
                     editPost = doc.data();
                     editStatus = true;
                     idPostEdit = doc.id;
+
                     console.log(editPost);
                     onNavigate('/postForm');
 
-                })
-            })
+                });
+            });
         });
     });
 

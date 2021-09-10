@@ -5,13 +5,18 @@ export const Navbar = () => {
     const template =
         `
     <nav>
-    <div class="logo-nav">
+    <div class="container-logo">
         <img class="logo-nav" src="../img/logo-nav2.png" alt="">
     </div>
     </nav>
     <div class="menu-nav">
         <ul>
-            <li><a id="logout" href=""><img class="icon-nav" src="../img/icons8-salir-redondeado-64.png">Sign off</a></li>
+            <li ><a id="logout" href="">
+                <div class="signOff">
+                    <img class="icon-nav" src="../img/icons8-salir-redondeado-64.png">
+                    <p>Sign off</p>
+                </div>
+            </a></li>
             <!-- <li><a href="#" id="profilePerfil"><img class= "icon-nav" src="../img/iconsusuario.png">Profile</a></li>-->
         </ul>
     </div>
@@ -33,12 +38,7 @@ export const Navbar = () => {
         }
 
     });
-    // const profile = navBar.querySelector('#profilePerfil');
-    // profile.addEventListener('click', (e) => {
-    //     e.preventDefault();
 
-    //     onNavigate('/profile');
-    // });
 
     return navBar
 }

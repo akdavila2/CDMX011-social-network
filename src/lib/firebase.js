@@ -40,8 +40,6 @@ export const activeSession = () => {
         if (user) {
             if (window.location.origin) {
                 onNavigate('/home');
-            } else {
-                window.location
             }
         } else {
             onNavigate('/');
@@ -80,7 +78,10 @@ export const savePosts = (title, rating, review, user, date) =>
         rating: rating,
         review: review,
         user: user,
-        date: date
+        date: date,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        likesCounter: 0,
+        likes: []
     });
 
 //Get the post as they are entered
@@ -101,3 +102,22 @@ export const getPost = (id) =>
 //Update post
 export const updatePost = (id, updatedTask) =>
     fireSt.collection('posts').doc(id).update(updatedTask)
+
+export const likePost =  (postId) => {
+    const uid = firebase.auth().currentUser.uid;
+    return fireSt.collection('posts').doc(postId).update({
+        likes: firebase.firestore.FieldValue.arrayUnion(uid),
+    });
+}
+
+export const unlikePost = (postId) => {
+    const uid = firebase.auth().currentUser.uid;
+    return fireSt.collection('posts').doc(postId).update({
+        likes: firebase.firestore.FieldValue.arrayRemove(uid),
+    });
+}
+
+export const onGetLikes = (callback) => 
+    fireSt.collection('likes').onSnapshot(callback)
+
+

@@ -17,7 +17,7 @@ export const Publication = () => {
     </div>`;
 
     const publicationsDiv = document.createElement('div')
-    publicationsDiv.classList.add('Poster')
+    publicationsDiv.classList.add('poster')
     publicationsDiv.innerHTML = view
 
     const btnAddPost = publicationsDiv.querySelector('#addpublications');

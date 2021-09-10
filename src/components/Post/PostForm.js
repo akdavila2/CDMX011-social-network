@@ -10,12 +10,12 @@ export const Post = () => {
             <div class= "form-Background">
                 <form action="" id="publicationsForm" class="form">
                     <label for="Username">Title of the book</label>
-                    <input class = "inputpost" type="text" id="title">
+                    <input class = "inputpost" type="text" id="title" required>
                     <label for="rating">Rating</label>
-                    <input class="inputpost" type="number" id="rating" min=1 max=10>
+                    <input class="inputpost" type="number" id="rating" min=1 max=10 required>
                     <label for="review">Review</label>
-                    <textarea class = "inputpost" type="text" id="review"></textarea>
-                    <button class="btnPost" id="btnAddPost" type="submit"><img class="icon-post" src="../img/plusazul.png">Add Post</button>
+                    <textarea class = "inputpost" type="text" id="review" required></textarea>
+                    <button class="btnPost" id="btnAddPost" type="submit"><img class="icon-plus" src="../img/plusazul.png">Add Post</button>
                 </form>
             </div>
         </div>

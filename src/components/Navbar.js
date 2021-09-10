@@ -11,7 +11,7 @@ export const Navbar = () => {
     </nav>
     <div class="menu-nav">
         <ul>
-            <li><a id="logout" href=""><img class="icon-nav" src="../img/icons8-salir-redondeado-64.png">Sign off</a></li>
+        <li ><a id="logout" href=""> <div class="signOff"> <img class="icon-nav" src="../img/icons8-salir-redondeado-64.png"> <p>Sign off</p> </div> </a></li> 
             <!-- <li><a href="#" id="profilePerfil"><img class= "icon-nav" src="../img/iconsusuario.png">Profile</a></li>-->
         </ul>
     </div>

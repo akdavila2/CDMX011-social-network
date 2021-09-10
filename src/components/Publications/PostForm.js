@@ -14,7 +14,7 @@ export const PostForm = () => {
         <input class = "inputpost" type="number" id="rating" min= 1 max=10 Required>
         <label for="review">Review</label>
         <textarea class = "inputpost" type="text" id="review"></textarea Required>
-        <div class="error-message" id="postMesseges"></div>
+        <div class="error-formPost" id="postMesseges"></div>
         <button class="btnPost" id="btnAddPoster" type="submit"><img class="icon-plus" src="../img/plusazul.png">Add Post</button>    
     </form>
     </div>

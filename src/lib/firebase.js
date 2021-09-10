@@ -60,16 +60,16 @@ export const loginGoogle = () => auth
 
 export const savePost = (title, rating, review, user, date) =>
     db.collection('posts').doc().set({
-        title,
-        rating,
-        review,
-        user,
-        date
+        title: title,
+        rating: rating,
+        review: review,
+        user: user,
+        date: date,
     });
 
-//Función para obtener mis posts de la base de datos firestore
 
-export const getPost = () => db.collection('posts').get();
+//Función para obtener mis posts de la base de datos firestore por fechas descendente recurso https://firebase.google.com/docs/firestore/query-data/order-limit-data?hl=es
+export const getPost = () => db.collection('posts').orderBy('date', 'desc').get();
 
 //Funcion para que se actualicen los post 
 
@@ -78,3 +78,9 @@ export const onGetPost = (callback) => db.collection('posts').onSnapshot(callbac
 export const deletePosts = (id) => db.collection('posts').doc(id).delete();
 
 export const updatePost = (id, updatedPosts) => db.collection('posts').doc(id).update(updatedPosts);
+
+export const saveLikes = (idPost, idUsuario) =>
+    db.collection('posts').doc('likes').set({
+        idPost: idPost,
+        idUsuario: idUsuario,
+    });

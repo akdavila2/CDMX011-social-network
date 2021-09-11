@@ -512,8 +512,10 @@
             border-color: darkred;
             margin-bottom: 4px;
             cursor: pointer;
+            font-weight: bold;
+            color: darkorchid;
         }
-        /* ==========================================Footer================================================= */
+        /*==========================================Footer=================================================*/
         
         footer {
             flex-direction: column;

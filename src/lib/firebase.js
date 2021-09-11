@@ -40,15 +40,12 @@ export const activeSession = () => {
         if (user) {
             if (window.location.origin) {
                 onNavigate('/home');
-            } else {
-                window.location
             }
         } else {
             onNavigate('/');
         }
-    })
+    });
 }
-
 
 //Metodo para loguearse con Google
 
@@ -65,11 +62,12 @@ export const savePost = (title, rating, review, user, date) =>
         review: review,
         user: user,
         date: date,
+        likes: []
     });
 
 
 //Función para obtener mis posts de la base de datos firestore por fechas descendente recurso https://firebase.google.com/docs/firestore/query-data/order-limit-data?hl=es
-export const getPost = () => db.collection('posts').orderBy('date', 'desc').get();
+export const getPost = () => db.collection('posts').get();
 
 //Funcion para que se actualicen los post 
 
@@ -79,8 +77,16 @@ export const deletePosts = (id) => db.collection('posts').doc(id).delete();
 
 export const updatePost = (id, updatedPosts) => db.collection('posts').doc(id).update(updatedPosts);
 
-export const saveLikes = (idPost, idUsuario) =>
-    db.collection('posts').doc('likes').set({
-        idPost: idPost,
-        idUsuario: idUsuario,
+
+export const likePost = (postId) => {
+    const uid = auth.currentUser.uid;
+    return db.collection('posts').doc(postId).update({
+        likes: firebase.firestore.FieldValue.arrayUnion(uid),
     });
+}
+export const unLikePost = (postId) => {
+    const uid = auth.currentUser.uid;
+    return db.collection('posts').doc(postId).update({
+        likes: firebase.firestore.FieldValue.arrayRemove(uid),
+    });
+}

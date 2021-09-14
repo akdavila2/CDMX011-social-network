@@ -53,6 +53,7 @@
         .icon-nav {
             height: 20px;
             width: 20px;
+            margin-right: 5px;
         }
         
         nav {
@@ -74,12 +75,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-        
-        .icon-nav {
-            height: 20px;
-            width: 20px;
-            margin-right: 5px;
         }
         
         .signOff p {
@@ -213,7 +208,7 @@
             height: 65px;
             margin-top: 5px;
             color: #630A10;
-            font-family: 'Open Sans';
+            font-family: 'Open Sans', sans-serif;
             overflow-wrap: break-word;
             font-size: 12px;
             width: 300px;
@@ -224,13 +219,11 @@
             width: 50px;
             height: 90px;
             color: #630A10;
-            font-family: 'Open Sans';
+            font-family: 'Open Sans', sans-serif;
             overflow-wrap: break-word;
             font-size: 8px;
-            width: 300px;
             line-height: 15px;
             border-color: white;
-            height: 65px;
             margin-top: 5px;
         }
         
@@ -358,10 +351,6 @@
             height: auto;
         }
         
-        h3 {
-            margin-bottom: 5px;
-        }
-        
         .log-content {
             display: flex;
             flex-direction: column;
@@ -382,10 +371,6 @@
         
         .publication p {
             line-height: 10px;
-        }
-        
-        .post {
-            height: 100px;
         }
         /*==================================================================home=========================================================*/
         
@@ -423,7 +408,6 @@
         
         .container-posts {
             height: fit-content;
-            width: 100%;
             display: flex;
             flex-direction: column;
             width: 80%;
@@ -449,10 +433,10 @@
         }
         
         .container-review {
-            margin-top: 20px;
             width: 90%;
             background-color: white;
             margin: auto;
+            margin-top: 5px;
             overflow-wrap: break-word;
             word-wrap: break-word;
             line-height: 15px;
@@ -485,9 +469,35 @@
             width: 100%;
             height: auto;
             background-color: #F3F1F5;
-            color: #C8C6C6;
+            color: grey;
             margin: auto;
             justify-content: space-between;
+        }
+        
+        .iconDIV-like {
+            margin: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .icon-like {
+            width: 15px;
+            height: 15px;
+            margin-top: 4px;
+            margin-left: 8px;
+            margin-right: 4px;
+            border-color: darkred;
+            margin-bottom: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            color: darkorchid;
+        }
+        
+        span {
+            margin-top: 4px;
+            margin-bottom: 4px;
+            font-size: 12px;
         }
         
         .icon-post {
@@ -502,18 +512,6 @@
             height: 15px;
             margin-right: 5px;
             cursor: pointer;
-        }
-        
-        .icon-like {
-            width: 15px;
-            height: 15px;
-            margin-top: 4px;
-            margin-left: 8px;
-            border-color: darkred;
-            margin-bottom: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            color: darkorchid;
         }
         /*==========================================Footer=================================================*/
         

@@ -1,9 +1,5 @@
-import { routes } from './router/router.js'
+/* eslint-disable eol-last */
+/* eslint-disable import/no-useless-path-segments */
 import { activeSession } from './lib/firebase.js';
-
-
-const component = routes[window.location.pathname]
-
-document.getElementById('root').appendChild(component());
 
 activeSession();

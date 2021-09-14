@@ -1,5 +1,11 @@
-import { login, loginGoogle } from "../lib/firebase.js";
-import { onNavigate } from "../router/router.js";
+/* eslint-disable eol-last */
+/* eslint-disable semi */
+/* eslint-disable space-before-function-paren */
+/* eslint-disable indent */
+/* eslint-disable import/no-cycle */
+import { login, loginGoogle } from '../lib/firebase.js';
+import { onNavigate } from '../router/router.js';
+
 export const Login = () => {
     const view = `
 <div class="acount-header">
@@ -38,29 +44,27 @@ export const Login = () => {
         event.preventDefault();
         const email = loginContainer.querySelector('#loginEmail').value;
         const password = loginContainer.querySelector('#loginPassword').value;
-        console.log(email, password);
+
         try {
             await login(email, password);
-            //onNavigate('/home');
+            // onNavigate('/home');
         } catch (error) {
             loginContainer.querySelector('#loginMessages').innerHTML = '&#x02716'.concat(' ', error.message);
         }
     });
-    btnSignUp.addEventListener('click', event => {
+    btnSignUp.addEventListener('click', (event) => {
         event.preventDefault();
         onNavigate('/signUp');
     });
-    //Login con google
+    // Login con google
     withGoogle.addEventListener('click', async(event) => {
         event.preventDefault();
         try {
-            await loginGoogle()
-            console.log('logueado con google');
-            onNavigate('/home')
+            await loginGoogle();
+            onNavigate('/home');
         } catch (error) {
             loginContainer.querySelector('#loginMessages').innerHTML = '&#x02716'.concat(' ', error.message);
         }
     });
-
     return loginContainer;
 };

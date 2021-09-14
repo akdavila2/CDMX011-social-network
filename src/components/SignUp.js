@@ -1,5 +1,9 @@
-import { onNavigate } from "../router/router.js";
-import { register } from "../lib/firebase.js";
+/* eslint-disable eol-last */
+/* eslint-disable space-before-function-paren */
+/* eslint-disable indent */
+/* eslint-disable import/no-cycle */
+import { onNavigate } from '../router/router.js';
+import { register } from '../lib/firebase.js';
 
 export const SignUp = () => {
     const view = `
@@ -20,7 +24,7 @@ export const SignUp = () => {
                 <button type="submit" id="btnSendSignUp">Sign Up</button>
             </form>
         </div>
-        `
+        `;
 
     const signupContainer = document.createElement('div');
     signupContainer.classList.add('acount');
@@ -36,18 +40,15 @@ export const SignUp = () => {
         const password = signupContainer.querySelector('#signupPassword').value;
         const signUpPassword2 = signupContainer.querySelector('#signupPassword2').value;
 
-        console.log(email, password);
         if (password === signUpPassword2) {
             try {
                 await register(email, password);
-                console.log('exitoso')
                 onNavigate('/home');
             } catch (error) {
-                signupContainer.querySelector('#signupMesseges').innerHTML = '&#x02716'.concat(' ', error.message)
+                signupContainer.querySelector('#signupMesseges').innerHTML = '&#x02716'.concat(' ', error.message);
             }
         } else {
-            console.log('contraseñas no coinciden')
-            signupMesseges.innerHTML = "&#x02716 Passwords do not match";
+            signupContainer.querySelector('#signupMesseges').innerHTML = '&#x02716 Passwords do not match';
         }
     });
     return signupContainer;

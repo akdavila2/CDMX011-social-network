@@ -1,9 +1,13 @@
-import { Home } from "../components/Home.js";
-import { Login } from "../components/Login.js";
-import { PostForm } from '../components/Publications/PostForm.js'
-import { SignUp } from "../components/SignUp.js";
-import { activeSession } from "../lib/firebase.js";
-
+/* eslint-disable import/no-useless-path-segments */
+/* eslint-disable eol-last */
+/* eslint-disable function-paren-newline */
+/* eslint-disable indent */
+/* eslint-disable import/no-cycle */
+import { Home } from '../components/Home.js';
+import { Login } from '../components/Login.js';
+import { PostForm } from '../components/Publications/PostForm.js';
+import { SignUp } from '../components/SignUp.js';
+import { activeSession } from '../lib/firebase.js';
 
 export const routes = {
     '/': Login,
@@ -12,7 +16,7 @@ export const routes = {
     '/postForm': PostForm,
 };
 
-const rootDiv = document.getElementById('root')
+const rootDiv = document.getElementById('root');
 
 export const onNavigate = (pathname) => {
     window.history.pushState({},

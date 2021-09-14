@@ -1,5 +1,8 @@
-import { getUser } from "../lib/firebase.js";
-import { onNavigate } from "../router/router.js";
+/* eslint-disable eol-last */
+/* eslint-disable indent */
+/* eslint-disable import/no-cycle */
+import { getUser } from '../lib/firebase.js';
+import { onNavigate } from '../router/router.js';
 
 export const Publication = () => {
     const user = getUser();
@@ -16,18 +19,14 @@ export const Publication = () => {
     </div> 
     </div>`;
 
-    const publicationsDiv = document.createElement('div')
-    publicationsDiv.classList.add('Poster')
-    publicationsDiv.innerHTML = view
+    const publicationsDiv = document.createElement('div');
+    publicationsDiv.classList.add('Poster');
+    publicationsDiv.innerHTML = view;
 
     const btnAddPost = publicationsDiv.querySelector('#addpublications');
-    btnAddPost.addEventListener('click', event => {
+    btnAddPost.addEventListener('click', (event) => {
         event.preventDefault();
         onNavigate('/postForm');
     });
-
-    //en el botón de enviar poner la lógica para mandar el post a firebase y también para que aparezca ya sea en home o perfil, intentar usar un parámetro para indicar si está en home o perfil para usar la misma lógica del componente
-
     return publicationsDiv;
-
 };

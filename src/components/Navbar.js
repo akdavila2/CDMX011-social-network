@@ -1,9 +1,13 @@
-import { onNavigate } from "../router/router.js"
-import { signOut } from "../lib/firebase.js"
+/* eslint-disable eol-last */
+/* eslint-disable no-alert */
+/* eslint-disable space-before-function-paren */
+/* eslint-disable indent */
+/* eslint-disable import/no-cycle */
+import { onNavigate } from '../router/router.js';
+import { signOut } from '../lib/firebase.js';
 
 export const Navbar = () => {
-    const template =
-        `
+    const template = `
     <nav>
     <div class="logo-nav">
         <img class="logo-nav" src="../img/logo-nav2.png" alt="">
@@ -16,22 +20,19 @@ export const Navbar = () => {
         </ul>
     </div>
     
-`
-    const navBar = document.createElement('header')
-    navBar.classList.add('header-div')
-    navBar.innerHTML = template
+`;
+    const navBar = document.createElement('header');
+    navBar.classList.add('header-div');
+    navBar.innerHTML = template;
     const logout = navBar.querySelector('#logout');
     logout.addEventListener('click', async(event) => {
         event.preventDefault();
         try {
             await signOut();
-            console.log('SAli ehhh');
             onNavigate('/');
-
         } catch (error) {
-            alert(error)
+            alert(error);
         }
-
     });
     // const profile = navBar.querySelector('#profilePerfil');
     // profile.addEventListener('click', (e) => {
@@ -39,6 +40,5 @@ export const Navbar = () => {
 
     //     onNavigate('/profile');
     // });
-
-    return navBar
-}
+    return navBar;
+};

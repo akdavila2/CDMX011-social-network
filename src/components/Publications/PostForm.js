@@ -1,7 +1,12 @@
-import { onNavigate } from "../../router/router.js"
-import { Navbar } from "../Navbar.js"
-import { savePost, getUser, updatePost } from "../../lib/firebase.js"
-import { idPostEdit, editStatus, editPost } from "./RendPosts.js"
+/* eslint-disable import/no-useless-path-segments */
+/* eslint-disable eol-last */
+/* eslint-disable space-before-function-paren */
+/* eslint-disable indent */
+/* eslint-disable import/no-cycle */
+import { onNavigate } from '../../router/router.js';
+import { Navbar } from '../Navbar.js';
+import { savePost, getUser, updatePost } from '../../lib/firebase.js';
+import { idPostEdit, editStatus, editPost } from '../Publications/RendPosts.js';
 
 export const PostForm = () => {
     const viewInfo = `
@@ -19,7 +24,7 @@ export const PostForm = () => {
     </form>
     </div>
 </div>
-`
+`;
     const posts = document.createElement('div');
     posts.appendChild(Navbar());
 
@@ -31,7 +36,7 @@ export const PostForm = () => {
 
     const errorMessage = contentPost.querySelector('#postMesseges');
 
-    const formPost = contentPost.querySelector('#publicationsForm')
+    const formPost = contentPost.querySelector('#publicationsForm');
     const btnAddPost = contentPost.querySelector('#btnAddPoster');
     const title = contentPost.querySelector('#title');
     const rating = contentPost.querySelector('#rating');
@@ -45,7 +50,6 @@ export const PostForm = () => {
         formPost.addEventListener('submit', async(event) => {
             event.preventDefault();
             try {
-                console.log(title, rating, review);
                 await savePost(title.value, rating.value, review.value, user.email, dateToday);
                 onNavigate('/home');
             } catch (error) {
@@ -63,15 +67,13 @@ export const PostForm = () => {
                 await updatePost(idPostEdit, {
                     title: title.value,
                     rating: rating.value,
-                    review: review.value
+                    review: review.value,
                 });
                 onNavigate('/home');
-
             } catch (error) {
                 errorMessage.innerHTML = '&#x02716'.concat(' ', error.message);
             }
         });
-
     }
     return posts;
-}
+};

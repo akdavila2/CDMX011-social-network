@@ -46,13 +46,11 @@ export const activeSession = () => {
         }
     });
 };
-
 // Metodo para loguearse con Google
-
-const provider = new firebase.auth.GoogleAuthProvider();
-export const loginGoogle = () => firebase.auth()
-    .signInWithPopup(provider);
-
+export const loginGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    return firebase.auth().signInWithPopup(provider);
+};
 // Firestore
 // Funcion para guardar post en mi coleccion de posts
 

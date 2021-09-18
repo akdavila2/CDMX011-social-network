@@ -13,12 +13,13 @@
             line-height: 0.2;
             font-family: 'Open Sans', sans-serif;
             color: #968C83;
+            position: relative;
         }
         /* =============================Container=================================================== */
         
         .container-1 {
             width: 100%;
-            height: fit-content;
+            min-height: 100%;
             margin-top: 0px;
         }
         
@@ -32,7 +33,7 @@
         /* ===================================Header - Nav============================================== */
         
         .acount-logo {
-            width: 95%;
+            width: 100%;
         }
         
         .header-div {
@@ -127,7 +128,7 @@
         .addPublication {
             background-color: #F3F1F5;
             border-color: lightgrey;
-            height: 110px;
+            height: 95px;
             padding: 10px;
             width: 90%;
             margin: auto;
@@ -410,8 +411,9 @@
             height: fit-content;
             display: flex;
             flex-direction: column;
-            width: 80%;
+            width: 95%;
             margin: auto;
+            align-items: center;
         }
         
         .review-container {
@@ -516,8 +518,8 @@
         /*==========================================Footer=================================================*/
         
         footer {
-            flex-direction: column;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             font-size: 12px;
             align-items: center;

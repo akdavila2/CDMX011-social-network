@@ -74,6 +74,7 @@ export const RendPosts = () => {
                     if (!thisPosts.likes.includes(user.email)) {
                         try {
                             await likePost(postId);
+                            console.log('dando like');
                             icon.src = '../../img/heart.svg';
                             icon.classList.add('btn-like--solid');
                         } catch (error) {
@@ -82,6 +83,7 @@ export const RendPosts = () => {
                     } else {
                         try {
                             await unLikePost(postId);
+                            console.log('quitando like');
                             icon.classList.remove('btn-like--solid');
                             icon.src = '../../img/corazon vacio.png';
                         } catch (error) {
@@ -109,11 +111,17 @@ export const RendPosts = () => {
             iconEdit.forEach((icon) => {
                 icon.addEventListener('click', async(event) => {
                     event.preventDefault();
-                    const doci = await getPost(event.target.dataset.id);
-                    editPost = doc.data();
-                    editStatus = true;
-                    idPostEdit = doc.id;
-                    onNavigate('/postForm');
+                    try {
+                        const docs = await getPost(event.target.dataset.id);
+                        console.log('estoy editando');
+                        editPost = docs.data();
+                        console.log(editPost);
+                        editStatus = true;
+                        idPostEdit = docs.id;
+                        onNavigate('/postForm');
+                    } catch (error) {
+                        console.error('error', error);
+                    }
                 });
             });
         });

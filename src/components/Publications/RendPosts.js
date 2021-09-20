@@ -99,7 +99,9 @@ export const RendPosts = () => {
                     event.preventDefault();
                     try {
                         // alert('Are you sure to delete this post')
-                        swal('Are you sure to delete this post');
+                        swal({
+                            text: 'Are you sure to delete this post',
+                        });
                         await deletePosts(event.target.dataset.id);
                     } catch (error) {
                         console.error('error', error);

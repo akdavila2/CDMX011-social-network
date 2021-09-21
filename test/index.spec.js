@@ -9,20 +9,16 @@ import { render } from '../src/utils.js';
 import { Login } from '../src/components/Login.js';
 import { SignUp } from '../src/components/SignUp.js';
 import { PostForm } from '../src/components/Publications/PostForm.js';
-
 // Login component tests
-
 const delay = (timeInMs = 100) => new Promise((resolve) => setTimeout(resolve, timeInMs));
-
 describe('Login', () => {
     document.body.innerHTML = '<div id="root"></div>';
     const rootDiv = document.getElementById('root');
     const loginForm = (email, password) => {
-        document.getElementById('loginEmail').value = email;
-        document.getElementById('loginPassword').value = password;
-        document.getElementById('btnLogin').click();
+        rootDiv.querySelector('#loginEmail').value = email;
+        rootDiv.querySelector('#loginPassword').value = password;
+        rootDiv.querySelector('#btnLogin').click();
     };
-
     it('should be a function', () => {
         expect(typeof Login).toBe('function');
     });
@@ -34,10 +30,8 @@ describe('Login', () => {
         const email = 'test@labo.com';
         const password = '123456';
         const user = { email, uid: '42xtUMfM3cSZ61Arn4aH' }; // un objeto dummy que representa el user
-
         const mockSignInWithEmailAndPassword = jest.fn();
         mockSignInWithEmailAndPassword.mockResolvedValue(user);
-
         const mockFirebaseAuth = {
             signInWithEmailAndPassword: mockSignInWithEmailAndPassword,
             currentUser: user,
@@ -67,7 +61,7 @@ describe('Login', () => {
         expect(rootDiv.innerHTML).toContain(errorMessage);
     });
     it('Expected event when clicking the signup button', () => {
-        const btnSignUp = document.getElementById('signup');
+        const btnSignUp = rootDiv.querySelector('#signup');
         btnSignUp.click();
         expect(btnSignUp.outerHTML).toBe('<button type="submit" id="signup">Sign Up</button>');
     });

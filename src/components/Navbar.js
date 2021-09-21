@@ -10,7 +10,7 @@ export const Navbar = () => {
     const template = `
     <nav>
     <div class="logo-nav">
-        <img class="logo-nav" src="../img/logo-nav2.png" alt="">
+        <img id='clickLogo'class="logo-nav" src="../img/logo-nav2.png" alt="">
     </div>
     </nav>
     <div class="menu-nav">
@@ -33,6 +33,12 @@ export const Navbar = () => {
         } catch (error) {
             alert(error);
         }
+    });
+
+    const clickLogo = navBar.querySelector('#clickLogo');
+    clickLogo.addEventListener('click', (event) => {
+        event.preventDefault();
+        onNavigate('/home');
     });
     // const profile = navBar.querySelector('#profilePerfil');
     // profile.addEventListener('click', (e) => {

@@ -34,7 +34,7 @@ exports[`PostForm Should render 1`] = `
 "<div><header class=\\"header-div\\">
     <nav>
     <div class=\\"logo-nav\\">
-        <img class=\\"logo-nav\\" src=\\"../img/logo-nav2.png\\" alt=\\"\\">
+        <img id=\\"clickLogo\\" class=\\"logo-nav\\" src=\\"../img/logo-nav2.png\\" alt=\\"\\">
     </div>
     </nav>
     <div class=\\"menu-nav\\">

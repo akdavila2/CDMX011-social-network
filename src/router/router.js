@@ -29,3 +29,6 @@ export const onNavigate = (pathname) => {
     );
     dispatchRoute(pathname);
 };
+// window.addEventListener('popstate', () => {
+//     dispatchRoute(window.location.pathname);
+// });

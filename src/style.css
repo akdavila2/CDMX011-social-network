@@ -41,6 +41,7 @@
                 
                 .acount-logo {
                     width: 100%;
+                    cursor: pointer;
                 }
                 
                 .header-div {

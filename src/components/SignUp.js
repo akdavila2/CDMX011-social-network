@@ -8,7 +8,7 @@ import { register } from '../lib/firebase.js';
 export const SignUp = () => {
     const view = `
         <div class="acount-header">
-            <img src="../img/logoFormLoveBook.png" class="acount-logo" alt="LoveBook logo">
+            <img id= "logoSignup"src="../img/logoFormLoveBook.png" class="acount-logo" alt="LoveBook logo">
         </div>
         <div class="log-content">
             <form action="" id="signupForm" class="form">
@@ -50,6 +50,11 @@ export const SignUp = () => {
         } else {
             signupContainer.querySelector('#signupMesseges').innerHTML = '&#x02716 Passwords do not match';
         }
+    });
+    const logoSignup = signupContainer.querySelector('#logoSignup');
+    logoSignup.addEventListener('click', (event) => {
+        event.preventDefault();
+        onNavigate('/');
     });
     return signupContainer;
 };

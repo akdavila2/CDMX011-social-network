@@ -7,7 +7,7 @@ import { Home } from '../components/Home.js';
 import { Login } from '../components/Login.js';
 import { PostForm } from '../components/Publications/PostForm.js';
 import { SignUp } from '../components/SignUp.js';
-import { render } from '../utils.js';
+import { activeSession } from '../lib/firebase.js';
 
 export const routes = {
     '/': Login,
@@ -16,19 +16,22 @@ export const routes = {
     '/postForm': PostForm,
 };
 
-export const dispatchRoute = (pathname = '/') => {
-    const root = document.getElementById('root');
-    const component = routes[pathname];
-    render(root, component());
-};
+const rootDiv = document.getElementById('root');
 
 export const onNavigate = (pathname) => {
     window.history.pushState({},
         pathname,
-        window.location.origin + pathname,
-    );
-    dispatchRoute(pathname);
+        window.location.origin + pathname);
+    while (rootDiv.firstChild) {
+        rootDiv.removeChild(rootDiv.firstChild);
+    }
+    rootDiv.appendChild(routes[window.location.pathname]());
 };
-// window.addEventListener('popstate', () => {
-//     dispatchRoute(window.location.pathname);
-// });
+
+window.onpopstate = () => {
+    while (rootDiv.firstChild) {
+        rootDiv.removeChild(rootDiv.firstChild);
+    }
+    rootDiv.appendChild(routes[window.location.pathname]());
+    activeSession();
+};

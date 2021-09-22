@@ -131,3 +131,5 @@ export const RendPosts = () => {
 
     return posts;
 };
+
+// <img src="../../img/heart.svg" alt="">

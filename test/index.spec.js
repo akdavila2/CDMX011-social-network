@@ -5,7 +5,6 @@
 /* eslint-disable eol-last */
 /* eslint-disable indent */
 import './globals/firebaseTest.js';
-import { render } from '../src/utils.js';
 import { Login } from '../src/components/Login.js';
 import { SignUp } from '../src/components/SignUp.js';
 import { PostForm } from '../src/components/Publications/PostForm.js';
@@ -13,7 +12,12 @@ import { PostForm } from '../src/components/Publications/PostForm.js';
 const delay = (timeInMs = 100) => new Promise((resolve) => setTimeout(resolve, timeInMs));
 describe('Login', () => {
     document.body.innerHTML = '<div id="root"></div>';
+    const component = Login();
     const rootDiv = document.getElementById('root');
+    it('Should render the login screen', () => {
+        rootDiv.appendChild(component);
+        expect(rootDiv.innerHTML).toMatchSnapshot();
+    });
     const loginForm = (email, password) => {
         rootDiv.querySelector('#loginEmail').value = email;
         rootDiv.querySelector('#loginPassword').value = password;
@@ -21,10 +25,6 @@ describe('Login', () => {
     };
     it('should be a function', () => {
         expect(typeof Login).toBe('function');
-    });
-    it('Should render the login screen', () => {
-        render(rootDiv, Login());
-        expect(rootDiv.innerHTML).toMatchSnapshot();
     });
     it('Should login user successfully', async() => {
         const email = 'test@labo.com';
@@ -37,7 +37,7 @@ describe('Login', () => {
             currentUser: user,
         };
         firebase.auth = () => mockFirebaseAuth;
-        render(rootDiv, Login());
+        rootDiv.appendChild(component);
         loginForm(email, password);
         await delay(100);
         expect(mockSignInWithEmailAndPassword).toHaveBeenCalledWith(email, password);
@@ -54,16 +54,11 @@ describe('Login', () => {
         };
         firebase.auth = () => mockFirebaseAuth;
 
-        render(rootDiv, Login());
+        rootDiv.appendChild(component);
         loginForm(email, password);
         await delay(100);
         expect(mockSignInWithEmailAndPassword).toHaveBeenCalledWith(email, password);
         expect(rootDiv.innerHTML).toContain(errorMessage);
-    });
-    it('Expected event when clicking the signup button', () => {
-        const btnSignUp = rootDiv.querySelector('#signup');
-        btnSignUp.click();
-        expect(btnSignUp.outerHTML).toBe('<button type="submit" id="signup">Sign Up</button>');
     });
 });
 
@@ -73,7 +68,7 @@ describe('SignUp', () => {
     it('Should render SignUp', () => {
         const rootDiv = document.getElementById('root');
         const component = SignUp();
-        render(rootDiv, component);
+        rootDiv.appendChild(component);
         expect(rootDiv.innerHTML).toMatchSnapshot();
     });
     it('Should Login the user when the SignUp button is clicked', () => {
@@ -86,7 +81,7 @@ describe('SignUp', () => {
 
         const rootDiv = document.getElementById('root');
         const component = SignUp();
-        render(rootDiv, component);
+        rootDiv.appendChild(component);
 
         const email = 'karina@labo.com';
         const password = '123456';
@@ -112,7 +107,7 @@ describe('PostForm', () => {
     it('Should render', () => {
         const rootDiv = document.getElementById('root');
         const component = PostForm();
-        render(rootDiv, component);
+        rootDiv.appendChild(component);
         expect(rootDiv.innerHTML).toMatchSnapshot();
     });
     it('Expected event when clicking the AddPosts button', () => {

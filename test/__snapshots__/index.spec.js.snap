@@ -31,7 +31,43 @@ exports[`Login Should render the login screen 1`] = `
 `;
 
 exports[`PostForm Should render 1`] = `
-"<div><header class=\\"header-div\\">
+"<div class=\\"acount\\">
+        <div class=\\"acount-header\\">
+            <img id=\\"logoSignup\\" src=\\"../img/logoFormLoveBook.png\\" class=\\"acount-logo\\" alt=\\"LoveBook logo\\">
+        </div>
+        <div class=\\"log-content\\">
+            <form action=\\"\\" id=\\"signupForm\\" class=\\"form\\">
+                <label for=\\"signupUserName\\">Username</label>
+                <input type=\\"text\\" id=\\"signupUserName\\">
+                <label for=\\"signupEmail\\">Email</label>
+                <input type=\\"email\\" id=\\"signupEmail\\" required=\\"\\">
+                <label for=\\"signupPassword\\">Password</label>
+                <input type=\\"password\\" id=\\"signupPassword\\" required=\\"\\">
+                <label for=\\"signupPassword2\\">Confirm your password</label>
+                <input type=\\"password\\" id=\\"signupPassword2\\" required=\\"\\">
+                <div class=\\"error-message\\" id=\\"signupMesseges\\">✖ Cannot read property 'firstChild' of null</div>
+                <button type=\\"submit\\" id=\\"btnSendSignUp\\">Sign Up</button>
+            </form>
+        </div>
+        </div><div class=\\"acount\\">
+        <div class=\\"acount-header\\">
+            <img id=\\"logoSignup\\" src=\\"../img/logoFormLoveBook.png\\" class=\\"acount-logo\\" alt=\\"LoveBook logo\\">
+        </div>
+        <div class=\\"log-content\\">
+            <form action=\\"\\" id=\\"signupForm\\" class=\\"form\\">
+                <label for=\\"signupUserName\\">Username</label>
+                <input type=\\"text\\" id=\\"signupUserName\\">
+                <label for=\\"signupEmail\\">Email</label>
+                <input type=\\"email\\" id=\\"signupEmail\\" required=\\"\\">
+                <label for=\\"signupPassword\\">Password</label>
+                <input type=\\"password\\" id=\\"signupPassword\\" required=\\"\\">
+                <label for=\\"signupPassword2\\">Confirm your password</label>
+                <input type=\\"password\\" id=\\"signupPassword2\\" required=\\"\\">
+                <div class=\\"error-message\\" id=\\"signupMesseges\\"></div>
+                <button type=\\"submit\\" id=\\"btnSendSignUp\\">Sign Up</button>
+            </form>
+        </div>
+        </div><div><header class=\\"header-div\\">
     <nav>
     <div class=\\"logo-nav\\">
         <img id=\\"clickLogo\\" class=\\"logo-nav\\" src=\\"../img/logo-nav2.png\\" alt=\\"\\">
@@ -65,7 +101,7 @@ exports[`PostForm Should render 1`] = `
 exports[`SignUp Should render SignUp 1`] = `
 "<div class=\\"acount\\">
         <div class=\\"acount-header\\">
-            <img src=\\"../img/logoFormLoveBook.png\\" class=\\"acount-logo\\" alt=\\"LoveBook logo\\">
+            <img id=\\"logoSignup\\" src=\\"../img/logoFormLoveBook.png\\" class=\\"acount-logo\\" alt=\\"LoveBook logo\\">
         </div>
         <div class=\\"log-content\\">
             <form action=\\"\\" id=\\"signupForm\\" class=\\"form\\">

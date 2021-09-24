@@ -39,7 +39,7 @@ export const RendPosts = () => {
                     </div>
                     <div class='container-review'>
                         <div class='title-rating'>
-                            <p id='titlePost'>Title: ${post.title} </p>
+                            <p id='titlePost'>${post.title} </p>
                             <p id='ratingPost'>Rating: ${post.rating}/10</p>
                         </div>
                         <div id='reviewPost' class='review-text'>

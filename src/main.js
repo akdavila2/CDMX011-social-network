@@ -1,5 +1,6 @@
-// Este es el punto de entrada de tu aplicacion
+/* eslint-disable indent */
+/* eslint-disable eol-last */
+/* eslint-disable import/no-useless-path-segments */
+import { activeSession } from './lib/firebase.js';
 
-import { myFunction } from './lib/index.js';
-
-myFunction();
+activeSession();

@@ -176,8 +176,9 @@
                 
                 .getemail {
                     font-size: 10px;
-                    color: #968C83;
+                    color: #835151;
                     padding: 5px;
+                    font-weight: bolder;
                 }
                 
                 .photo-publication {
@@ -461,12 +462,17 @@
                     padding: 5px;
                 }
                 
+                #titlePost {
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+                
                 .review-text {
                     width: 100%;
                     height: 75%;
                     background-color: white;
                     flex-direction: row;
-                    font-size: 14px;
+                    font-size: 12px;
                     padding: 5px;
                 }
                 

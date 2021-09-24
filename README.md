@@ -41,6 +41,9 @@ en la que podamos **leer y escribir datos**.
 #### Prototipo de alta Fidelidad:
 <img  src= "src/img/prototypesmobileAF.png">
 
+### Acceso a figma
+https://www.figma.com/file/a9MakdxlZ1kqPhoMuwLDZl/Dise%C3%B1oLoveBook?node-id=0%3A1
+
 ## 6. Acceso a la Red Social LoveBook
 
 link: https://social-network-57ba3.web.app/
